@@ -1302,7 +1302,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #87055d;
+    background: #ff2118;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2629,7 +2629,7 @@ mjx-container[display='true'] + br {
 }
 header.header {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 0 0 6px 6px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
 }
 @media (max-width: 991px) {
@@ -2666,7 +2666,7 @@ header.header {
   }
 }
 .main-inner {
-  border-radius: initial;
+  border-radius: 0 0 6px 6px;
   box-sizing: border-box;
   width: calc(100% - 252px);
 }
@@ -2790,7 +2790,7 @@ header.header {
   }
   .sidebar-inner {
     background: var(--content-bg-color);
-    border-radius: initial;
+    border-radius: 6px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
     box-sizing: border-box;
     color: var(--text-color);
@@ -2850,11 +2850,11 @@ header.header {
 .main-inner .comment-position .comments,
 .main-inner .pagination {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 0 0 6px 6px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
 }
 .main-inner .post-block:not(:first-child):not(:first-child) {
-  border-radius: initial;
+  border-radius: 6px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin-top: 12px;
 }
@@ -2872,7 +2872,7 @@ header.header {
 .main-inner > .comments,
 .main-inner .comment-position .comments,
 .main-inner .pagination {
-  border-radius: initial;
+  border-radius: 6px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin-top: 12px;
 }
@@ -2978,4 +2978,42 @@ header.header {
 }
 img {
   border-radius: 8px;
+}
+code {
+  word-break: break-all;
+}
+.index_list {
+  background: var(--content-bg-color);
+  border-radius: 6px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  list-style: none;
+  padding: 40px 20px;
+  min-height: 50vh;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+.index_list li {
+  border-bottom: 1px dashed #ddd;
+}
+.index_list li:last-child {
+  border-bottom: none;
+}
+.index_list li a {
+  transition-property: background-color;
+  padding: 10px;
+  padding: 5px 20px;
+  position: relative;
+  transition-property: background-color;
+  display: flex;
+  align-items: center;
+  border: none;
+  justify-content: space-between;
+}
+.index_list li a:hover {
+  background: var(--menu-item-bg-color);
+}
+.index_list li a time {
+  color: #999;
 }

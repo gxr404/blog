@@ -19,31 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"tourmaline-mousse-8cd03f.netlify.app","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":true,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="@metamask&#x2F;post-message-stream 是MetaMask提供的一个在window.postMessage实现的双工对象流(基于 Duplex 的objectMode)">
+    <meta name="description" content="站点地图（Sitemap）描述了网站的架构。 它可以是一个任意形式的文档(xml&#x2F;html)，是列出网站中所有页面的一个网页。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解@metamask&#x2F;post-message-stream包">
-<meta property="og:url" content="https://tourmaline-mousse-8cd03f.netlify.app/parse_post_message_stream/index.html">
+<meta property="og:title" content="网站地图(sitemap)">
+<meta property="og:url" content="https://tourmaline-mousse-8cd03f.netlify.app/sitemap/index.html">
 <meta property="og:site_name" content="Gxr404 Blog">
-<meta property="og:description" content="@metamask&#x2F;post-message-stream 是MetaMask提供的一个在window.postMessage实现的双工对象流(基于 Duplex 的objectMode)">
+<meta property="og:description" content="站点地图（Sitemap）描述了网站的架构。 它可以是一个任意形式的文档(xml&#x2F;html)，是列出网站中所有页面的一个网页。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-07T04:46:45.857Z">
-<meta property="article:modified_time" content="2024-12-13T09:22:32.181Z">
+<meta property="article:published_time" content="2024-12-14T11:27:22.157Z">
+<meta property="article:modified_time" content="2024-12-14T11:33:06.842Z">
 <meta property="article:author" content="Gxr404">
-<meta property="article:tag" content="chrome-extension">
-<meta property="article:tag" content="web3">
-<meta property="article:tag" content="metamask">
-<meta property="article:tag" content="npm-package">
-<meta property="article:tag" content="stream">
+<meta property="article:tag" content="科普">
+<meta property="article:tag" content="seo">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://tourmaline-mousse-8cd03f.netlify.app/parse_post_message_stream/">
+<link rel="canonical" href="https://tourmaline-mousse-8cd03f.netlify.app/sitemap/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://tourmaline-mousse-8cd03f.netlify.app/parse_post_message_stream/","path":"parse_post_message_stream/","title":"理解@metamask/post-message-stream包"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://tourmaline-mousse-8cd03f.netlify.app/sitemap/","path":"sitemap/","title":"网站地图(sitemap)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>理解@metamask/post-message-stream包 | Gxr404 Blog</title>
+<title>网站地图(sitemap) | Gxr404 Blog</title>
   
 
 
@@ -142,7 +139,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">1.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">源码</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -203,7 +200,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tourmaline-mousse-8cd03f.netlify.app/parse_post_message_stream/">
+    <link itemprop="mainEntityOfPage" href="https://tourmaline-mousse-8cd03f.netlify.app/sitemap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -216,12 +213,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="理解@metamask/post-message-stream包 | Gxr404 Blog">
+      <meta itemprop="name" content="网站地图(sitemap) | Gxr404 Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          理解@metamask/post-message-stream包
+          网站地图(sitemap)
         </h1>
 
         <div class="post-meta-container">
@@ -232,7 +229,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-12-07 12:46:45" itemprop="dateCreated datePublished" datetime="2024-12-07T12:46:45+08:00">2024-12-07</time>
+      <time title="创建时间：2024-12-14 19:27:22" itemprop="dateCreated datePublished" datetime="2024-12-14T19:27:22+08:00">2024-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -253,60 +250,24 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01ldGFNYXNrL3Bvc3QtbWVzc2FnZS1zdHJlYW0=">@metamask&#x2F;post-message-stream<i class="fa fa-external-link-alt"></i></span> 是MetaMask提供的一个在<code>window.postMessage</code>实现的双工对象流(基于 Duplex 的objectMode)</p>
-<p>该库起初仅支持 <code>window.postMessage</code>的环境, 后续该库扩展环境范围:</p>
-<ul>
-<li>window.postMessage: <code>window.postMessage</code> 和 <code>window.addEventListener(&#39;message&#39;,...)</code></li>
-<li>runtime: 浏览器插件中的 <code>chrome.runtime.sendMessage</code>和<code>chrome.runtime.onMessage.addListener</code></li>
-<li>webWorker:<ul>
-<li>web端的<code>WebWorkerParentPostMessageStream</code>: <code>worker.postMessage</code>和<code>worker.onmessage</code></li>
-<li>worker端的<code>WebWorkerPostMessageStream</code>: <code>self.postMessage</code> <code>self.addEventListener(&#39;message&#39;, ...)</code></li>
-</ul>
-</li>
-<li>node-process:<ul>
-<li>父进程<code>ProcessParentMessageStream</code>: <code>process.send</code>和<code>process.on(&#39;message&#39;, ...)</code></li>
-<li>子进程<code>ProcessMessageStream</code>: <code>globalThis.process.send</code>和<code>globalThis.process.on(&#39;message&#39;, ...)</code></li>
-</ul>
-</li>
-<li>node-thread:<ul>
-<li>父线程 <code>ThreadParentMessageStream</code>: <code>worker.postMessage</code> 和 <code>worker.on(&#39;message&#39;, ...)</code></li>
-<li>子线程<code>ThreadMessageStream</code>: <code>parentPort.postMessage</code> 和 <code>parentPort.on(&#39;message&#39;, ...)</code></li>
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>站点地图（Sitemap）描述了网站的架构。 它可以是一个任意形式的文档(xml&#x2F;html)，是列出网站中所有页面的一个网页。</p>
+<p>有助于访问者以及搜索引擎的爬虫找到网站中的页面(对seo有利)。</p>
+<p>一般情况下，也就是 <code>https://domain.com/sitemap.xml</code></p>
+<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><p>网站地图可以有多种格式 XML文件（sitemap.xml）、HTML文件(sitemap.html)、TXT文件(sitemap.txt)或RSS文件(rss.xml)，</p>
+<p>通常是分级的XML结构</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sitemapindex</span> <span class="attr">xmlns</span>=<span class="string">&#x27;http://www.sitemaps.org/schemas/sitemap/0.9&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">sitemap</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">loc</span>&gt;</span>https://www.youtube.com/ads/sitemap.xml<span class="tag">&lt;/<span class="name">loc</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">sitemap</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">sitemap</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">loc</span>&gt;</span>https://www.youtube.com/sitemaps/misc.xml<span class="tag">&lt;/<span class="name">loc</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">sitemap</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">sitemap</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">loc</span>&gt;</span>https://www.youtube.com/kids/sitemap.xml<span class="tag">&lt;/<span class="name">loc</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">sitemap</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">sitemap</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">loc</span>&gt;</span>https://www.youtube.com/trends/sitemap.xml<span class="tag">&lt;/<span class="name">loc</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">sitemap</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">sitemapindex</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如上面 从首页的<code>sitemap.xml</code>指向了子模块中的多个<code>sitemap.xml</code></p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><ul>
+<li>b站的sitemap: <code>https://www.bilibili.com/sitemap.xml</code></li>
+<li>github的sitemap(以html的格式): <code>https://github.com/sitemap</code></li>
+<li>youtube的sitemap: <code>https://www.youtube.com/sitemaps/sitemap.xml</code></li>
+<li>hexo的sitemap: <code>https://hexo.io/sitemap.xml</code><ul>
+<li>hexo生成sitemap的插件 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvLWdlbmVyYXRvci1zaXRlbWFw">hexo-generator-sitemap<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 </li>
 </ul>
-<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>未使用该库之前</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;message&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span> (e.<span class="property">data</span>.<span class="property">target</span> === <span class="string">&#x27;nameA&#x27;</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">data</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">postMessage</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;nameB&#x27;</span>,</span><br><span class="line">  <span class="attr">target</span>: <span class="string">&#x27;nameA&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>使用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">WindowPostMessageStream</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@metamask/post-message-stream&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> streamA = <span class="keyword">new</span> <span class="title class_">WindowPostMessageStream</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;streamA&#x27;</span>,</span><br><span class="line">  <span class="attr">target</span>: <span class="string">&#x27;streamB&#x27;</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// postMessage</span></span><br><span class="line">streamA.<span class="title function_">write</span>(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> streamB = <span class="keyword">new</span> <span class="title class_">WindowPostMessageStream</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;streamB&#x27;</span>,</span><br><span class="line">  <span class="attr">target</span>: <span class="string">&#x27;streamA&#x27;</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// on message</span></span><br><span class="line">streamB.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>UML类图: <code>- Private</code>、<code># Protected</code>、<code>* Abstract(渲染出来是斜体)</code>、<code>$ Static(渲染出来是下划线)</code></p>
-<pre><code class="highlight mermaid">classDiagram
-direction RL
-class BasePostMessageStream&#123;
-  -Boolean _init
-  -Boolean _haveSyn
-  -Log _log
-  #_handshake()
-  #_onData()
-  #_postMessage()*
-  +_read()
-  +_write()
-  +_setLogger()
-&#125;
-namespace window &#123;
-  class WindowPostMessageStream &#123;
-    #_postMessage()
-    -_onMessage()
-    _destroy()
-  &#125;
-&#125;
-BasePostMessageStream &lt;|-- WindowPostMessageStream: 继承</code></pre>
-
-<p><code>ProcessMessageStream</code>,<code>ProcessParentMessageStream</code><br><code>ThreadMessageStream</code>, <code>ThreadParentMessageStream</code><br><code>BrowserRuntimePostMessageStream</code><br><code>WebWorkerPostMessageStream</code>, <code>WebWorkerParentPostMessageStream</code><br>与WindowPostMessageStream成员类似</p>
-<p>其中基类<code>BasePostMessageStream</code>继承于<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vZGVqcy9yZWFkYWJsZS1zdHJlYW0=">readable-stream<i class="fa fa-external-link-alt"></i></span><sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="readable-stream是Node.js官方出的库,旨在提供Streams模块的兼容性实现。允许开发者在不同的Node.js版本中使用一致的`StreamsAPI`，同时也为浏览器环境提供支持
-">[1]</span></a></sup>的<code>Duplex</code></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">readable-stream是Node.js官方出的库,旨在提供Streams模块的兼容性实现。允许开发者在不同的Node.js版本中使用一致的<code>StreamsAPI</code>，同时也为浏览器环境提供支持<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
     </div>
 
     
@@ -315,25 +276,19 @@ BasePostMessageStream &lt;|-- WindowPostMessageStream: 继承</code></pre>
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/chrome-extension/" rel="tag"># chrome-extension</a>
-              <a href="/tags/web3/" rel="tag"># web3</a>
-              <a href="/tags/metamask/" rel="tag"># metamask</a>
-              <a href="/tags/npm-package/" rel="tag"># npm-package</a>
-              <a href="/tags/stream/" rel="tag"># stream</a>
+              <a href="/tags/%E7%A7%91%E6%99%AE/" rel="tag"># 科普</a>
+              <a href="/tags/seo/" rel="tag"># seo</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/parse_object_multiplex/" rel="prev" title="理解@metamask/object-multiplex包">
-                  <i class="fa fa-angle-left"></i> 理解@metamask/object-multiplex包
+                <a href="/parse_extension_port_stream/" rel="prev" title="理解metamask的extension-port-stream包">
+                  <i class="fa fa-angle-left"></i> 理解metamask的extension-port-stream包
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/parse_extension_port_stream/" rel="next" title="理解metamask的extension-port-stream包">
-                  理解metamask的extension-port-stream包 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>

@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"tourmaline-mousse-8cd03f.netlify.app","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":true,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="@metamask&#x2F;post-message-stream 是MetaMask提供的一个在window.postMessage实现的双工对象流(基于 Duplex 的objectMode)">
+    <meta name="description" content="extension-port-stream将浏览器插件上的Runtime.Port对象 转成stream流对象.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解@metamask&#x2F;post-message-stream包">
-<meta property="og:url" content="https://tourmaline-mousse-8cd03f.netlify.app/parse_post_message_stream/index.html">
+<meta property="og:title" content="理解metamask的extension-port-stream包">
+<meta property="og:url" content="https://tourmaline-mousse-8cd03f.netlify.app/parse_extension_port_stream/index.html">
 <meta property="og:site_name" content="Gxr404 Blog">
-<meta property="og:description" content="@metamask&#x2F;post-message-stream 是MetaMask提供的一个在window.postMessage实现的双工对象流(基于 Duplex 的objectMode)">
+<meta property="og:description" content="extension-port-stream将浏览器插件上的Runtime.Port对象 转成stream流对象.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-07T04:46:45.857Z">
-<meta property="article:modified_time" content="2024-12-13T09:22:32.181Z">
+<meta property="article:published_time" content="2024-12-13T09:22:04.046Z">
+<meta property="article:modified_time" content="2024-12-15T08:40:49.547Z">
 <meta property="article:author" content="Gxr404">
 <meta property="article:tag" content="chrome-extension">
 <meta property="article:tag" content="web3">
@@ -37,13 +37,13 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://tourmaline-mousse-8cd03f.netlify.app/parse_post_message_stream/">
+<link rel="canonical" href="https://tourmaline-mousse-8cd03f.netlify.app/parse_extension_port_stream/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://tourmaline-mousse-8cd03f.netlify.app/parse_post_message_stream/","path":"parse_post_message_stream/","title":"理解@metamask/post-message-stream包"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://tourmaline-mousse-8cd03f.netlify.app/parse_extension_port_stream/","path":"parse_extension_port_stream/","title":"理解metamask的extension-port-stream包"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>理解@metamask/post-message-stream包 | Gxr404 Blog</title>
+<title>理解metamask的extension-port-stream包 | Gxr404 Blog</title>
   
 
 
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">1.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">源码</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">1.</span> <span class="nav-text">注意</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -203,7 +203,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tourmaline-mousse-8cd03f.netlify.app/parse_post_message_stream/">
+    <link itemprop="mainEntityOfPage" href="https://tourmaline-mousse-8cd03f.netlify.app/parse_extension_port_stream/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -216,12 +216,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="理解@metamask/post-message-stream包 | Gxr404 Blog">
+      <meta itemprop="name" content="理解metamask的extension-port-stream包 | Gxr404 Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          理解@metamask/post-message-stream包
+          理解metamask的extension-port-stream包
         </h1>
 
         <div class="post-meta-container">
@@ -232,7 +232,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-12-07 12:46:45" itemprop="dateCreated datePublished" datetime="2024-12-07T12:46:45+08:00">2024-12-07</time>
+      <time title="创建时间：2024-12-13 17:22:04" itemprop="dateCreated datePublished" datetime="2024-12-13T17:22:04+08:00">2024-12-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -253,59 +253,15 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01ldGFNYXNrL3Bvc3QtbWVzc2FnZS1zdHJlYW0=">@metamask&#x2F;post-message-stream<i class="fa fa-external-link-alt"></i></span> 是MetaMask提供的一个在<code>window.postMessage</code>实现的双工对象流(基于 Duplex 的objectMode)</p>
-<p>该库起初仅支持 <code>window.postMessage</code>的环境, 后续该库扩展环境范围:</p>
-<ul>
-<li>window.postMessage: <code>window.postMessage</code> 和 <code>window.addEventListener(&#39;message&#39;,...)</code></li>
-<li>runtime: 浏览器插件中的 <code>chrome.runtime.sendMessage</code>和<code>chrome.runtime.onMessage.addListener</code></li>
-<li>webWorker:<ul>
-<li>web端的<code>WebWorkerParentPostMessageStream</code>: <code>worker.postMessage</code>和<code>worker.onmessage</code></li>
-<li>worker端的<code>WebWorkerPostMessageStream</code>: <code>self.postMessage</code> <code>self.addEventListener(&#39;message&#39;, ...)</code></li>
-</ul>
-</li>
-<li>node-process:<ul>
-<li>父进程<code>ProcessParentMessageStream</code>: <code>process.send</code>和<code>process.on(&#39;message&#39;, ...)</code></li>
-<li>子进程<code>ProcessMessageStream</code>: <code>globalThis.process.send</code>和<code>globalThis.process.on(&#39;message&#39;, ...)</code></li>
-</ul>
-</li>
-<li>node-thread:<ul>
-<li>父线程 <code>ThreadParentMessageStream</code>: <code>worker.postMessage</code> 和 <code>worker.on(&#39;message&#39;, ...)</code></li>
-<li>子线程<code>ThreadMessageStream</code>: <code>parentPort.postMessage</code> 和 <code>parentPort.on(&#39;message&#39;, ...)</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>未使用该库之前</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;message&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span> (e.<span class="property">data</span>.<span class="property">target</span> === <span class="string">&#x27;nameA&#x27;</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">data</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">postMessage</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;nameB&#x27;</span>,</span><br><span class="line">  <span class="attr">target</span>: <span class="string">&#x27;nameA&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>使用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">WindowPostMessageStream</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@metamask/post-message-stream&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> streamA = <span class="keyword">new</span> <span class="title class_">WindowPostMessageStream</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;streamA&#x27;</span>,</span><br><span class="line">  <span class="attr">target</span>: <span class="string">&#x27;streamB&#x27;</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// postMessage</span></span><br><span class="line">streamA.<span class="title function_">write</span>(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> streamB = <span class="keyword">new</span> <span class="title class_">WindowPostMessageStream</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;streamB&#x27;</span>,</span><br><span class="line">  <span class="attr">target</span>: <span class="string">&#x27;streamA&#x27;</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// on message</span></span><br><span class="line">streamB.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>UML类图: <code>- Private</code>、<code># Protected</code>、<code>* Abstract(渲染出来是斜体)</code>、<code>$ Static(渲染出来是下划线)</code></p>
-<pre><code class="highlight mermaid">classDiagram
-direction RL
-class BasePostMessageStream&#123;
-  -Boolean _init
-  -Boolean _haveSyn
-  -Log _log
-  #_handshake()
-  #_onData()
-  #_postMessage()*
-  +_read()
-  +_write()
-  +_setLogger()
-&#125;
-namespace window &#123;
-  class WindowPostMessageStream &#123;
-    #_postMessage()
-    -_onMessage()
-    _destroy()
-  &#125;
-&#125;
-BasePostMessageStream &lt;|-- WindowPostMessageStream: 继承</code></pre>
-
-<p><code>ProcessMessageStream</code>,<code>ProcessParentMessageStream</code><br><code>ThreadMessageStream</code>, <code>ThreadParentMessageStream</code><br><code>BrowserRuntimePostMessageStream</code><br><code>WebWorkerPostMessageStream</code>, <code>WebWorkerParentPostMessageStream</code><br>与WindowPostMessageStream成员类似</p>
-<p>其中基类<code>BasePostMessageStream</code>继承于<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vZGVqcy9yZWFkYWJsZS1zdHJlYW0=">readable-stream<i class="fa fa-external-link-alt"></i></span><sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="readable-stream是Node.js官方出的库,旨在提供Streams模块的兼容性实现。允许开发者在不同的Node.js版本中使用一致的`StreamsAPI`，同时也为浏览器环境提供支持
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01ldGFNYXNrL2V4dGVuc2lvbi1wb3J0LXN0cmVhbQ==">extension-port-stream<i class="fa fa-external-link-alt"></i></span>将<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9Nb3ppbGxhL0FkZC1vbnMvV2ViRXh0ZW5zaW9ucy9BUEkvcnVudGltZS9Qb3J0">浏览器插件上的Runtime.Port对象<i class="fa fa-external-link-alt"></i></span> 转成stream流对象.</p>
+<p>继承于<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vZGVqcy9yZWFkYWJsZS1zdHJlYW0=">readable-stream<i class="fa fa-external-link-alt"></i></span><sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="readable-stream是Node.js官方出的库,旨在提供Streams模块的兼容性实现。允许开发者在不同的Node.js版本中使用一致的`StreamsAPI`，同时也为浏览器环境提供支持
 ">[1]</span></a></sup>的<code>Duplex</code></p>
+<p>该库比较简单:</p>
+<p>stream实例对象上的<code>_write</code>调用了portInstance.postMessage方法 作为输出<br>监听<code>portInstance.onMessage.addListener</code>(内部调用了<code>stream.push</code>方法)作为输入</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li><code>@metamask/post-message-stream</code>中的runtime是对应浏览器插件中的 <code>chrome.runtime.sendMessage</code>和<code>chrome.runtime.onMessage.addListener</code> 这种适用于<strong>一次性发送和接收消息</strong></li>
+<li><code>extension-port-stream</code>中是对应 <code>portInstance = chrome.runtime.connect</code> 中的 <code>portInstance.postMessage</code> 和 <code>portInstance.onMessage.addListener</code>持久的双向通信通道，适用于需要持续交互的场景</li>
+</ul>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">readable-stream是Node.js官方出的库,旨在提供Streams模块的兼容性实现。允许开发者在不同的Node.js版本中使用一致的<code>StreamsAPI</code>，同时也为浏览器环境提供支持<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
     </div>
 
@@ -326,13 +282,13 @@ BasePostMessageStream &lt;|-- WindowPostMessageStream: 继承</code></pre>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/parse_object_multiplex/" rel="prev" title="理解@metamask/object-multiplex包">
-                  <i class="fa fa-angle-left"></i> 理解@metamask/object-multiplex包
+                <a href="/parse_post_message_stream/" rel="prev" title="理解@metamask/post-message-stream包">
+                  <i class="fa fa-angle-left"></i> 理解@metamask/post-message-stream包
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/parse_extension_port_stream/" rel="next" title="理解metamask的extension-port-stream包">
-                  理解metamask的extension-port-stream包 <i class="fa fa-angle-right"></i>
+                <a href="/sitemap/" rel="next" title="网站地图(sitemap)">
+                  网站地图(sitemap) <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
