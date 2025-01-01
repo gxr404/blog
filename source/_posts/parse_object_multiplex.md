@@ -183,7 +183,7 @@ streamA.on('data', (data) => {
 
 ## 源码
 
-![1](/images/parse_object_multiplex/1.png)
+![1](./parse_object_multiplex/1.png)
 
 
 [^1]: readable-stream是Node.js官方出的库,旨在提供Streams模块的兼容性实现。允许开发者在不同的Node.js版本中使用一致的`StreamsAPI`，同时也为浏览器环境提供支持

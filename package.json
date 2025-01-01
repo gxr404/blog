@@ -7,7 +7,10 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
+    "server:draft": "npm run clean && hexo server --draft",
     "new_post": "hexo new",
+    "new_draft": "hexo new draft 'title'",
+    "publish_draft": "hexo publish 'title'",
     "publish": "rm -rf public && npm run build && git add . && git commit -m 'chore: publish blog' && git push"
   },
   "hexo": {

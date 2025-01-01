@@ -24,7 +24,11 @@ document.addEventListener('page:loaded', () => {
         logLevel : 4,
         flowchart: { curve: 'linear' },
         gantt    : { axisFormat: '%m/%d/%Y' },
-        sequence : { actorMargin: 50 }
+        sequence : { actorMargin: 50 },
+        // TODO: Gxr404
+        class: {
+          hideEmptyMembersBox: true
+        }
       });
       mermaid.run();
     });
