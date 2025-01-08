@@ -58,6 +58,12 @@ NexT.boot.refresh = function() {
   NexT.utils.registerSidebarTOC();
   NexT.utils.registerPostReward();
   NexT.utils.registerVideoIframe();
+  // Gxr utterances 使用的rel='canonical' 作为url字段 而pjax没有更新该字段 这里手动更新下
+  // https://github.com/utterance/utterances/blob/9e79bdaaa48c0b83d224c58f132db317785103cd/src/client.ts#L32
+  const canonicalLink = document.querySelector('link[rel="canonical"]');
+  if (canonicalLink) {
+    canonicalLink.href = `${location.origin + location.pathname}`;
+  }
 };
 
 NexT.boot.motion = function() {
