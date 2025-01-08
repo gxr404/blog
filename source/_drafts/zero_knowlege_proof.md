@@ -24,6 +24,13 @@ categories: 技术
 
 ### 示例二
 
+Alice把自己的签名的信封放到一个保险箱中，Bob说他知道这个保险箱的密码，Alice让Bob证明给她看。
+Bob打开保险箱，把信封拿出来给Alice。Alice验证信封上的签名，确认了Bob确实知道这个密码。
+
+> 这个例子就是Bob没有告诉Alice密码却证明自己知道密码的的过程很好的解释了零知识证明的概念
+
+### 示例三
+
 小明出了一道非常难的数独题，小红花了很长时间尝试去解开这个数独，但是怎么都解不出结果。
 
 小红觉得小明在耍她，小明回答道“我能证明给你看这题是有解的，而且我知道这个解”
@@ -71,9 +78,25 @@ categories: 技术
 - 合理性。没有人能够假冒证明方，使这个证明成功。
 - 零知识性。证明过程执行完之后，验证方只获得了“证明方拥有这个知识”这条信息，而没有获得关于这个知识本身的任何一点信息。
 
+零知识证明具有三个特性：零知识、完备性和公正性。
+
+零知识：通过给出的证明、验证过程及公共信息，无法计算出证明中包含的隐藏命题组件。
+
+完备性：按算法制作的对正确命题的证明都能通过验证。
+
+公正性：由不正确的命题生成的证明无法通过验证。
+
+## 交互和非交互
+
+- 交互: 交互的零知识证明要求每个验证者都要向证明者发送数据来完成证明，而无交互的零知识证明，证明者只需要计算一次产生一个proof，所有的验证者都可以验证这个proof。
+- 非交互: **证明者与验证者之间不需要交互**即可实现证明
+
+为什么需要有这种非交互式呢？
+因为交互式证明proof的其实只对**原始的验证者**有效，其他的任何人都不能够信任这个证明。
+这种场景下呢，就会导致这个验证者可以和这个证明人串通，证明人可以伪造证明。
+交互式证明也有它的用处，就比如说一个证明人只想让一个特定的验证者来去验证，但是这个证证明人和验证者必须保持在线，并且去对每一个验证者执行同样的计算。
 
 
-- 非交互的零知识证明: zk-SNARK(Zero-knowledge succinct non-interactive arguments of knowledge)
 
 ## 加密货币中的应用
 
@@ -84,6 +107,15 @@ categories: 技术
 
 在区块链中，**用户需要将交易明文广播给所有矿工**，由他们来校验交易的合法性。
 
+```txt
+
+在区块链中，用户需要将交易明文广播给所有矿工，由他们来校验交易的合法性。
+但是有些情况下，基于隐私的考虑，又不想把交易的具体内容公布出来。这就形成了一对矛盾。
+解决这个矛盾的关键思路是：
+校验一个事件正确与否，并不需要验证者重现整个事件。
+比如，验收一款软件，通常只要看最终测试结果是否通过即可，并不需要把整个软件开发过程的每一个细节都重放一遍。
+阿里巴巴给强盗的提议，其实也是类似一个验收测试。
+
 
 对于比特币的例子，一笔转帐交易合法与否，其实只要证明三件事：
 
@@ -92,6 +124,7 @@ categories: 技术
 - 发送者的钱确实被销毁了
 
 整个证明过程中，矿工其实并不关心具体花掉了多少钱，发送者具体是谁，接受者具体是谁。矿工只关心系统的钱是不是守恒的。
+```
 
 zcash 就是用这个思路实现了隐私交易。
 
@@ -100,6 +133,38 @@ zcash 就是用这个思路实现了隐私交易。
 - 交易发送者地址
 - 交易接收者地址
 - 交易的数值
+
+## 扩展了解
+
+零知识证明系统
+
+- zk-SNARK(Zero-knowledge succinct non-interactive arguments of knowledge)非交互的零知识证明
+- zk-STARK(Zero-Knowledge Scalable Transparent Argument of Knowledge)零知识可扩展透明知识证明
+  - 强调可扩展性（Scalable）和透明性（Transparent）
+- Bulletproof
+  - 可用来拓展多方协议，比如说多重签名。
+  - 提供更高效的及加密交易的范围证明。
+
+| Proof system  | Σ Protocal   | SNARKS          | STARKs/CS-Proofs     | Bulletproofs |
+| ------------- | ------------ | --------------- | -------------------- | ------------ |
+| Proof size    | long         | short           | shortish             | short        |
+| Prover        | linear       | fft             | fft(big memort req.) | linear       |
+| Verfier       | linear       | efficient       | efficient            | linear       |
+| Trusted Setup | no           | required        | no                   | no           |
+| Practial      | yes          | yes             | not quite            | yes          |
+| Assumptions   | discrete-log | non-falsifiable | owf(quantum secure)  | discrete-log |
+
+|                                       | SNARKs                     | STARKs                        | Bulletproofs    |
+| ------------------------------------: | -------------------------: | ----------------------------: | --------------: |
+| Algorithmic complexity: prover        | O(N * log(N))              | O(N * poly-log(N))            | O(N * log(N))   |
+| Algorithmic complexity: verifier      | ~O(1)                      | O(poly-log(N))                | O(N)            |
+| Communication complexity (proof size) | ~O(1)                      | O(poly-log(N))                | O(log(N))       |
+| - size estimate for 1 TX              | Tx: 200 bytes, Key: 50 MB  | 45 kB                         | 1.5 kb          |
+| - size estimate for 10.000 TX         | Tx: 200 bytes, Key: 500 GB | 135 kb                        | 2.5 kb          |
+| Ethereum/EVM verification gas cost    | ~600k (Groth16)            | ~2.5M (estimate, no impl.)    | N/A             |
+| Trusted setup required?               | YES :unamused:             | NO :smile:                    | NO :smile:      |
+| Post-quantum secure                   | NO :unamused:              | YES :smile:                   | NO :unamused:   |
+| Crypto assumptions                    | DLP + secure bilinear pairing :unamused:          | Collision resistant hashes :smile: | Discrete log :smirk: |
 
 ## 参考
 

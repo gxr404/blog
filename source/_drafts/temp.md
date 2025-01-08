@@ -1,2 +1,0 @@
-Unspent Transaction Output (UTXO)
-
