@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#151b23"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#151b23">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gxr404.netlify.app","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":300,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":true,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="torrent文件即我们常说的种子文件，是由BitTorrent协议所定义的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈Torrent文件">
+<meta property="og:url" content="https://gxr404.netlify.app/torrent-file/index.html">
+<meta property="og:site_name" content="Gxr404 Blog">
+<meta property="og:description" content="torrent文件即我们常说的种子文件，是由BitTorrent协议所定义的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gxr404.netlify.app/torrent-file/tracker-server.png">
+<meta property="article:published_time" content="2025-01-11T18:48:15.000Z">
+<meta property="article:modified_time" content="2025-01-11T18:48:15.857Z">
+<meta property="article:author" content="Gxr404">
+<meta property="article:tag" content="科普">
+<meta property="article:tag" content="p2p">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gxr404.netlify.app/torrent-file/tracker-server.png">
+
+
+<link rel="canonical" href="https://gxr404.netlify.app/torrent-file/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gxr404.netlify.app/torrent-file/","path":"torrent-file/","title":"浅谈Torrent文件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>浅谈Torrent文件 | Gxr404 Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Gxr404 Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bencode"><span class="nav-number">1.</span> <span class="nav-text">Bencode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%89%8B%E5%81%9Ademo"><span class="nav-number">1.1.</span> <span class="nav-text">动手做demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E7%BC%96%E7%A0%81%E5%86%85%E5%AE%B9"><span class="nav-number">1.2.</span> <span class="nav-text">分析编码内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torrent%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">torrent文件内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#info-hash"><span class="nav-number">2.1.</span> <span class="nav-text">info_hash</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tracker%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">Tracker服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DHT%E5%88%86%E5%B8%83%E5%BC%8F%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">DHT分布式哈希表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%A6%82%E7%9A%84%E4%B8%8B%E8%BD%BD%E6%B5%81%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text">大概的下载流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gxr404"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Gxr404</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+<div class="sidebar-button-2">
+  <a href="https://github.com/gxr404" rel="noopener external nofollow noreferrer" target="_blank" class="exturl" title="GitHub → https://github.com/gxr404">
+    <i class="fab fa-github fa-fw"></i>&nbsp;gxr404
+  </a>
+  <a href="mailto:gxr40404@gmail.com" rel="noopener external nofollow noreferrer" target="_blank" class="exturl" title="E-Mail → mailto:gxr40404@gmail.com">
+    <i class="fa fa-envelope fa-fw"></i>&nbsp;gxr40404@gmail.com
+  </a>
+  <a href="https://github-activity-one.vercel.app/gxr404?theme=dark" rel="noopener external nofollow noreferrer" target="_blank" class="exturl">
+    <i class="fa fa-bullhorn" style="vertical-align: 0px"></i>&nbsp;Github Activity
+  </a>
+</div>
+
+<div style="margin:0 -10px; border-top: 1px dashed #ccc;">
+  <img class="github_start_info light" src="https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=default&hide_border=true&show_owner=false&description_lines_count=10&title_color=555&icon_color=555&text_color=555#gh-light-mode-only">
+  <img class="github_start_info dark" src="https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=github_dark_dimmed&bg_color=00000000&hide_border=true&title_color=fff&icon_color=fff&text_color=fff#gh-dark-mode-only">
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gxr404.netlify.app/torrent-file/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Gxr404">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gxr404 Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="浅谈Torrent文件 | Gxr404 Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浅谈Torrent文件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-12 02:48:15" itemprop="dateCreated datePublished" datetime="2025-01-12T02:48:15+08:00">2025-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+
+      </header>
+    
+      
+      
+        
+      
+        
+      
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>torrent文件即我们常说的种子文件，是由<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvQml0VG9ycmVudF8oJUU1JThEJThGJUU4JUFFJUFFKQ==">BitTorrent协议<i class="fa fa-external-link-alt"></i></span>所定义的。</p>
+<p>torrent文件本质就是文本文件，包含 tracker信息和文件信息两部分</p>
+<ul>
+<li>tracker信息: 记录的是 BT服务器&#x2F;Tracker服务器&#x2F;追踪服务器 相关信息</li>
+<li>文件信息: 记录该torrent中的目标文件相关信息</li>
+</ul>
+<p>如果直接用vscode打开torrent文件是一堆乱码的，因为torrent使用了一种特殊的编码Bencode</p>
+<h2 id="Bencode"><a href="#Bencode" class="headerlink" title="Bencode"></a>Bencode</h2><p><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvQmVuY29kZQ==">Bencode<i class="fa fa-external-link-alt"></i></span>是 BitTorrent协议中用于存储和传输松散结构数据的编码方式</p>
+<p>Bencode支持四种不同类型的值</p>
+<ul>
+<li>byte strings  字节串</li>
+<li>integers  整数</li>
+<li>lists  列表</li>
+<li>dictionaries  字典</li>
+</ul>
+<h3 id="动手做demo"><a href="#动手做demo" class="headerlink" title="动手做demo"></a>动手做demo</h3><blockquote>
+<p>使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dlYnRvcnJlbnQvbm9kZS1iZW5jb2Rl">node-bencode<i class="fa fa-external-link-alt"></i></span>库</p>
+</blockquote>
+<p>使用bencode编码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bencode <span class="keyword">from</span> <span class="string">&#x27;bencode&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> data = &#123;</span><br><span class="line">  <span class="attr">string</span>: <span class="string">&#x27;Hello World&#x27;</span>,</span><br><span class="line">  <span class="attr">integer</span>: <span class="number">12345</span>,</span><br><span class="line">  <span class="attr">dict</span>: &#123;</span><br><span class="line">    <span class="attr">key</span>: <span class="string">&#x27;This is a string within a dictionary&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">list</span>: [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="string">&#x27;string&#x27;</span>, <span class="number">5</span>, &#123;&#125; ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = bencode.<span class="title function_">encode</span>(data)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Buffer</span>.<span class="title function_">from</span>(result).<span class="title function_">toString</span>())</span><br><span class="line"><span class="comment">// d4:dictd3:key36:This is a string within a dictionarye7:integeri12345e4:listli1ei2ei3ei4e6:stringi5edee6:string11:Hello Worlde</span></span><br></pre></td></tr></table></figure>
+
+<p>使用bencode解码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bencode <span class="keyword">from</span> <span class="string">&#x27;bencode&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> data = <span class="string">&#x27;d4:dictd3:key36:This is a string within a dictionarye7:integeri12345e4:listli1ei2ei3ei4e6:stringi5edee6:string11:Hello Worlde&#x27;</span></span><br><span class="line"><span class="keyword">const</span> result = bencode.<span class="title function_">decode</span>(<span class="title class_">Buffer</span>.<span class="title function_">from</span>(data))</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> resultUtf8 = bencode.<span class="title function_">decode</span>(<span class="title class_">Buffer</span>.<span class="title function_">from</span>(data), <span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(resultUtf8)</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   dict: &#123;</span></span><br><span class="line"><span class="comment">//     key: Uint8Array(36) [ 84, 104, 105, 115, 32, 105, 115, 32, 97, 32, 115, 116, 114, 105, 110, 103, 32, 119, 105, 116, 104, 105, 110, 32, 97, 32, 100, 105, 99, 116, 105, 111, 110, 97, 114, 121 ],</span></span><br><span class="line"><span class="comment">//   &#125;,</span></span><br><span class="line"><span class="comment">//   integer: 12345,</span></span><br><span class="line"><span class="comment">//   list: [ 1, 2, 3, 4, Uint8Array(6) [ 115, 116, 114, 105, 110, 103 ], 5, &#123;&#125; ],</span></span><br><span class="line"><span class="comment">//   string: Uint8Array(11) [ 72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100 ],</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   dict: &#123;</span></span><br><span class="line"><span class="comment">//     key: &quot;This is a string within a dictionary&quot;,</span></span><br><span class="line"><span class="comment">//   &#125;,</span></span><br><span class="line"><span class="comment">//   integer: 12345,</span></span><br><span class="line"><span class="comment">//   list: [ 1, 2, 3, 4, &quot;string&quot;, 5, &#123;&#125; ],</span></span><br><span class="line"><span class="comment">//   string: &quot;Hello World&quot;,</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="分析编码内容"><a href="#分析编码内容" class="headerlink" title="分析编码内容"></a>分析编码内容</h3><p>让我们来看看编码出来的内容</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d4:dictd3:key36:This is a string within a dictionarye7:integeri12345e4:listli1ei2ei3ei4e6:stringi5edee6:string11:Hello Worlde</span><br></pre></td></tr></table></figure>
+
+<p>Bencode编码算法中</p>
+<ul>
+<li>integers整数类型 编码为<code>i&lt;base10 integer&gt;e</code><ul>
+<li>上面<code>i12345e</code> 对应了 <code>integer: 12345</code>中的12345<ul>
+<li>格式化下: <code>i 12345 e</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>byte strings字节串类型 编码为<code>&lt;length&gt;:&lt;contents&gt;</code><ul>
+<li>上面<code>7:integer</code> 对应了 <code>integer: 12345</code>中的integer<ul>
+<li>格式化下: <code>7: integer</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>dictionaries字典类型 编码为 <code>d&lt;pairs&gt;e</code><ul>
+<li>上面<code>de</code>对应<code>&#123;&#125;</code></li>
+<li>上面 <code>d3:key36:This is a string within a dictionarye</code> 对应<code>&#123;key: &quot;This is a string within a dictionary&quot;&#125;</code><ul>
+<li>格式化下: <code>d 3:key 36:This is a string within a dictionary e</code>其中两个字符串类型 <code>3:key</code>和 <code>36:This is a string within a dictionary</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>lists列表类型 编码为<code>l&lt;elements&gt;e</code><ul>
+<li>上面<code>li1ei2ei3ei4e6:stringi5edee</code> 对应<code>[ 1, 2, 3, 4, &quot;string&quot;, 5, &#123;&#125; ]</code><ul>
+<li>格式化下: <code>l i1e i2e i3e i4e 6:string i5e de e</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="torrent文件内容"><a href="#torrent文件内容" class="headerlink" title="torrent文件内容"></a>torrent文件内容</h2><p>从上面可知 torrent文件需要使用bencode编码去解码才能解析出文件内容</p>
+<p>下面我们使用<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dlYnRvcnJlbnQvbm9kZS1iZW5jb2Rl">node-bencode<i class="fa fa-external-link-alt"></i></span>来解析一个torrent文件，来看看里面的具体内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span></span><br><span class="line"><span class="keyword">import</span> bencode <span class="keyword">from</span> <span class="string">&#x27;bencode&#x27;</span></span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&#x27;./test.torrent&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> result = bencode.<span class="title function_">decode</span>(data, <span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(result, <span class="literal">null</span>, <span class="number">2</span>))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   &quot;announce-list&quot;: [</span></span><br><span class="line"><span class="comment">//     [</span></span><br><span class="line"><span class="comment">//       &quot;http://p4p.arenabg.com:1337/announce&quot;</span></span><br><span class="line"><span class="comment">//     ],</span></span><br><span class="line"><span class="comment">//     [</span></span><br><span class="line"><span class="comment">//       &quot;udp://47.ip-51-68-199.eu:6969/announce&quot;</span></span><br><span class="line"><span class="comment">//     ],</span></span><br><span class="line"><span class="comment">//     ...</span></span><br><span class="line"><span class="comment">//   ],</span></span><br><span class="line"><span class="comment">//   &quot;info&quot;: &#123;</span></span><br><span class="line"><span class="comment">//     &quot;files&quot;: [</span></span><br><span class="line"><span class="comment">//       &#123; &quot;length&quot;: 601, &quot;path&quot;: [&quot;Code.txt&quot;] &#125;,</span></span><br><span class="line"><span class="comment">//       &#123; &quot;length&quot;: 50, &quot;path&quot;: [&quot;SeeHD.WS.txt&quot;] &#125;,</span></span><br><span class="line"><span class="comment">//       &#123; &quot;length&quot;: 38, &quot;path&quot;: [&quot;Torrent Downloaded From ProstyleX.com.txt&quot; ] &#125;,</span></span><br><span class="line"><span class="comment">//       &#123; &quot;length&quot;: 3135215904, &quot;path&quot;: [&quot;WwW.SeeHD.PL__Overlord 2018 1080p PROPER WEB-DL X264 5.1-SeeHD.mkv&quot;] &#125;</span></span><br><span class="line"><span class="comment">//     ],</span></span><br><span class="line"><span class="comment">//     &quot;name&quot;: &quot;Overlord 2018 1080p PROPER WEB-DL X264 5.1-SeeHD&quot;,</span></span><br><span class="line"><span class="comment">//     &quot;piece length&quot;: 262144,</span></span><br><span class="line"><span class="comment">//     &quot;pieces&quot;: &lt;binary SHA1 hashes&gt; // &quot;xxx一些乱码&quot;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面输出的结果中</p>
+<ul>
+<li>announce-list的内容 就是对应的文章开头说的 tracker信息</li>
+<li>info的内容 对应的就是 文件信息</li>
+</ul>
+<p>一般种子文件可能的字段和其含义:</p>
+<ul>
+<li>tracker信息<ul>
+<li>announce: 追踪服务器的URL</li>
+<li>announce-list: BitTorrent规范中的<span class="exturl" data-url="aHR0cDovL3d3dy5iaXR0b3JyZW50Lm9yZy9iZXBzL2JlcF8wMDEyLmh0bWw=">BEP-0012<i class="fa fa-external-link-alt"></i></span>扩展支持多个追踪器</li>
+</ul>
+</li>
+<li>文件信息<ul>
+<li><code>info.name</code>: 建议保存文件的目录名称</li>
+<li><code>info.files</code>: 种子中的文件， 每个元素代表一个目录名或文件名。</li>
+<li><code>info[&quot;piece length&quot;]</code>: 每个片段&#x2F;文件块的长度</li>
+<li><code>info.pieces</code>： 实际每个文件块的SHA-1 所集成的Hash<ul>
+<li>可以抽象的想象一些 <code>info.pieces</code>大概内容(ps: <code>Piece 1:</code>是不存在的):<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Piece 1: a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8g9h0</span><br><span class="line">Piece 2: f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6b7a8c9d0</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li>
+<li>pieces 字段的作用是<strong>用于文件完整性校验</strong>，确保下载过程中传输的数据块没有被篡改或损坏</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="info-hash"><a href="#info-hash" class="headerlink" title="info_hash"></a>info_hash</h3><p>info_hash 是<strong>种子文件的唯一标识符</strong>，它是 <code>.torrent</code> 文件中 info 部分的哈希值</p>
+<p>从torrent获取info_hash, 对 info 部分进行 Bencode 编码后计算 SHA-1 哈希值，得到 info_hash。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line">info_hash = <span class="title function_">sha1</span>(bencode.<span class="title function_">encode</span>(&#123;</span><br><span class="line">  <span class="attr">info</span>: &#123;</span><br><span class="line">    <span class="attr">files</span>: [</span><br><span class="line">        &#123; <span class="attr">length</span>: <span class="number">615</span>,    <span class="attr">path</span>: [<span class="string">&quot;free audiobook verison.txt&quot;</span>] &#125;,</span><br><span class="line">        &#123; <span class="attr">length</span>: <span class="number">393417</span>, <span class="attr">path</span>: [<span class="string">&quot;Warcraft_ Official Movie Novelization by Christie Golden.epub&quot;</span>] &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;Warcraft_ Official Movie Novelization by Christie Golden EPUB&quot;</span>,</span><br><span class="line">    <span class="string">&quot;piece length&quot;</span>: <span class="number">10485765</span>,</span><br><span class="line">    <span class="attr">pieces</span>: xxx</span><br><span class="line">  &#125;</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tracker服务器"><a href="#Tracker服务器" class="headerlink" title="Tracker服务器"></a>Tracker服务器</h2><p>Tracker服务器是<strong>帮助BitTorrent协议在 节点与节点之间 做连接</strong>的服务器(这里的节点指的用户与用户间)</p>
+<div class="markdown-alert markdown-alert-tip">
+<p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>P2P最终的文件资源还是存储在用户，不存在一个中心化的服务器去存储资源!!<br>资源下载发生在用户与用户之间</p>
+</div>
+<p><img src="/torrent-file/tracker-server.png" alt="tracker-server" loading="lazy"></p>
+<p>Bt下载器(迅雷之类的软件)一开始就要连接到Tracker，从Tracker获得其他用户的客户端IP地址(Peers)后，才能连接到其他客户端下载。<br>在传输过程中，也会一直与Tracker通信，上传自己的信息，获取其它客户端的信息。</p>
+<p>举个栗子</p>
+<p>例如BT服务器将一个文件分成了N个部分，有甲、乙、丙、丁四位用户同时下载，那么BT并不会完全从服务器下载这个文件的所有部分，而是根据实际情况有选择地从其他用户的机器中下载已下载完成的部分。</p>
+<p>例如甲已经下载了第1部分，乙已经下载了第2部分，那么丙就会从甲的机器中下载第1部分，从乙的机器中下载第2部分，当然甲、乙、丁三位用户也在同时从丙的机器中下载相应的部分，这就大大减轻了BT服务器的负荷，也同时加快了丙的下载速度，也就是说每台参加下载的计算机既从其他用户的计算机上下载文件，同时自身也向其他用户提供下载，因此参与<strong>下载的用户数量越多，下载速度也越高</strong>。</p>
+<p>这里有个问题 用户与用户之间怎么知道对方有哪部分文件和对方的ip地址呢，这就是Tracker起到的作用</p>
+<!-- 在 P2P 下载中，数据从多个节点分块下载，可能会因为传输错误、恶意节点等原因导致数据损坏。
+
+下载完成后，客户端会对每个块重新计算 SHA-1 哈希值，并与`pieces` 字段中对应的哈希值进行比较：
+- 如果匹配，则数据块完整。
+- 如果不匹配，则丢弃损坏的数据块并重新下载。 -->
+
+<h2 id="DHT分布式哈希表"><a href="#DHT分布式哈希表" class="headerlink" title="DHT分布式哈希表"></a>DHT分布式哈希表</h2><p>如果Tracker服务不工作或者封禁了怎么办？</p>
+<p>DHT 网络（Distributed Hash Table分布式哈希表）是 BitTorrent 协议的一种去中心化技术，它允许在没有 Tracker 服务器的情况下，客户端通过 P2P 网络找到其他下载节点（Peers）</p>
+<blockquote>
+<p>DHT 可以与 .torrent 文件或 磁力链接(Magnet Link)一起工作，适应多种场景</p>
+</blockquote>
+<p>支持DHT的客户端(即迅雷，电驴这些客户端)可以在 Tracker不可用时通过 DHT网络查找 Peer(用户的节点)</p>
+<blockquote>
+<p>ps: 前提是需要客户端(即迅雷，电驴这些客户端)支持</p>
+</blockquote>
+<p>大概原理</p>
+<ul>
+<li>加入DHT网络(可能就是打开软件时)<ul>
+<li>客户端成为DHT网络中的一个节点</li>
+<li>每个 DHT 节点都维护一部分哈希表，用于存储种子信息（info_hash）和与之相关的 Peer 信息</li>
+</ul>
+</li>
+<li>存储和查询数据<ul>
+<li>存储：当客户端拥有一个种子（或下载一部分文件）时，它会将自己的地址（IP 和端口）与种子的 info_hash 绑定，并<strong>通过DHT协议广播到网络</strong>。</li>
+<li>查询：当客户端需要下载文件时，它会将种子的 info_hash 发送到 DHT 网络，寻找拥有该种子的 Peer 列表。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>所以当没有Tracker服务时，靠把info_hash 广播到DHT网络中 找到对应的 Peer节点(即别的用户的电脑) 去下载，代替了原本Tracker的功能</p>
+</blockquote>
+<h2 id="大概的下载流程"><a href="#大概的下载流程" class="headerlink" title="大概的下载流程"></a>大概的下载流程</h2><ol>
+<li>解析 .torrent 文件</li>
+<li>与tracker服务建立链接，发送请求以获取 Peers 列表(这个列表就是其他client的节点ip和端口)</li>
+<li>请求Peers, 下载 Piece(文件片段)，根据 pieces 字段校验 Piece 的有效性</li>
+<li>组装 Piece片段，得到完整的文件</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLWNuLyVFNyVBNyU4RCVFNSVBRCU5MCVFNiU5NiU4NyVFNCVCQiVCNg==">Torrent_file维基<i class="fa fa-external-link-alt"></i></span>&#x2F;<span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvVG9ycmVudF9maWxlI0V4YW1wbGVz">Torrent_file维基(en版更详细)<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvQmVuY29kZQ==">Bencode维基<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvQml0VG9ycmVudF90cmFja2Vy">Tracker维基<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTg4JTg2JUU2JTk1JUEzJUU1JUJDJThGJUU5JTlCJTlDJUU2JUI5JThBJUU4JUExJUE4">DHT分布式表<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dlYnRvcnJlbnQvbm9kZS1iZW5jb2Rl">node-bencode库<i class="fa fa-external-link-alt"></i></span></li>
+<li>⭐️<span class="exturl" data-url="aHR0cHM6Ly9janRpbmcubWUvMjAyMC8xMC8zMS90aW55dG9ycmVudC1hLWRlbm8tYnQtZG93bmxvYWRlci8=">tinyTorrent: 从头写一个 Deno 的 BitTorrent 下载器<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NzU3MjgzL2FydGljbGUvZGV0YWlscy85NDQ1MDk4MA==">https://blog.csdn.net/qq_29757283/article/details/94450980<i class="fa fa-external-link-alt"></i></span></li>
+<li>⭐️<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC81NTEzMzcxMjg=">一文读懂Bt种子、磁力链接、直链、p2p这些下载的区别<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<!-- BitTorrent的P2P下载是怎么做到的？
+要做到P2P下载首先需要解决如下两个问题：
+
+1、 如何知道哪些Client在下载同一个文件？
+
+2、 对某一个文件，如何做到同时从多个来源进行下载？
+
+对于第一个问题的解决方案：
+
+设计一个TrackerServer（跟踪服务器），每一个Client需要去这里上报自己正在下载的文件以及自己的ip地址和监听的端口。新来的Client先要连接到TrackerServer，根据要下载的文件查询当前正在下载这个文件的Clients (Peers)。
+
+对于第二个问题的解决方法：
+
+Client从TrackerServer获取Peers后，分别向他们发起连接并询问当前的下载进度，然后，同时连接多个Peers分别下载他们已完成的文件片段，最后拼接出完整的文件。
+ -->
+
+
+<!--
+1、那么我使用迅雷我也是一个peer,被迫给别的下载的peer传输资源？
+  - 这要看迅雷的实现，下载和上传的逻辑由客户端控制。比如 tinyTorrent 就只下载不上传。可以使用一些 BT 软件比如 uTorrent。
+2、如何把我本地一个资源做成种子呢？制作成功了，发给别人我电脑关机了或者资源删除了，意思就别人无法下载了吗？
+  - 如果只有你一个人做种，那么是的，你下线了自然就无法下载了。
+-->
+
+
+<!--
+要做到P2P下载首先需要解决如下两个问题：
+
+1、 如何知道哪些Client在下载同一个文件？
+2、 对某一个文件，如何做到同时从多个来源进行下载？
+对于第一个问题的解决方案：
+设计一个TrackerServer（跟踪服务器），每一个Client需要去这里上报自己正在下载的文件以及自己的ip地址和监听的端口。新来的Client先要连接到TrackerServer，根据要下载的文件查询当前正在下载这个文件的Clients (Peers)。
+对于第二个问题的解决方法：
+Client从TrackerServer获取Peers后，分别向他们发起连接并询问当前的下载进度，然后，同时连接多个Peers分别下载他们已完成的文件片段，最后拼接出完整的文件。
+-->
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%99%AE/" rel="tag"># 科普</a>
+              <a href="/tags/p2p/" rel="tag"># p2p</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/chrome-extension/" rel="prev" title="chrome插件开发基础">
+                  <i class="fa fa-angle-left"></i> chrome插件开发基础
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/p2p/" rel="next" title="一文读懂Bt种子、磁力链接、直链、p2p这些下载的区别">
+                  一文读懂Bt种子、磁力链接、直链、p2p这些下载的区别 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Gxr404</span>
+  </div><div class="footer-custom">
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2d4cjQwNC9ibG9n">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"gxr404/blog","issue_term":"pathname","theme":"github-light","pathname":"pathname"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

@@ -27,13 +27,13 @@ chrome插件可以扩展浏览器的功能，为用户提供更便捷的操作�
 
 ## 各部分权限
 
-![1](./chrome_extension/1.png)
+![1](./chrome-extension/1.png)
 
 > ps: injected script 可以理解为 源web页脚本
 
 ## 通信方式
 
-![2](./chrome_extension/2.png)
+![2](./chrome-extension/2.png)
 
 > ps: injected script 可以理解为 源web页脚本
 

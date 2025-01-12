@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#151b23"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#151b23">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gxr404.netlify.app","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":300,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":true,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="什么是直链、Bt种子、磁力、p2p? 它们有什么区别，原理分别是什么?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一文读懂Bt种子、磁力链接、直链、p2p这些下载的区别">
+<meta property="og:url" content="https://gxr404.netlify.app/p2p/index.html">
+<meta property="og:site_name" content="Gxr404 Blog">
+<meta property="og:description" content="什么是直链、Bt种子、磁力、p2p? 它们有什么区别，原理分别是什么?">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-d0e5e412c39b1f15327554b7ba4e8af6_1440w-655304.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-a17f8e888b146729380226e669d46fd1_1440w-582406.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-2a74af32d40eaeb43ce7f03941fc198f_1440w-915544.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-3aeec0f8cf29fcd58177b910e5f9a41a_1440w-511981.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-a70e094a508145e75eace150bfd78a19_1440w-899251.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-7e08da63ea1700012da40c5e8a026827_1440w-035100.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-b168ca4cb676d4ae9844ce9397d6d215_1440w-342080.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-e4674ce7cb1a436ab08c82930da8d13b_1440w-381886.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-b2d56ef2ea36ec94bf8a772abf1c5e50_1440w-250175.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-5b856e95f72d7b692cf226275111fc2c_1440w-382526.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-434271fc19a22379d5b84b423c14f3a8_1440w-903221.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-58cb3f02c9b5f38af81c0e8ce08462dd_1440w-818501.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-434271fc19a22379d5b84b423c14f3a8_1440w-903221.jpeg">
+<meta property="og:image" content="https://gxr404.netlify.app/p2p/v2-1bcc85c2042ea806c824edef98e6f41e_1440w-727348.jpeg">
+<meta property="article:published_time" content="2025-01-12T13:59:36.000Z">
+<meta property="article:modified_time" content="2025-01-12T13:59:36.839Z">
+<meta property="article:author" content="Gxr404">
+<meta property="article:tag" content="科普">
+<meta property="article:tag" content="转载">
+<meta property="article:tag" content="p2p">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gxr404.netlify.app/p2p/v2-d0e5e412c39b1f15327554b7ba4e8af6_1440w-655304.jpeg">
+
+
+<link rel="canonical" href="https://gxr404.netlify.app/p2p/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gxr404.netlify.app/p2p/","path":"p2p/","title":"一文读懂Bt种子、磁力链接、直链、p2p这些下载的区别"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一文读懂Bt种子、磁力链接、直链、p2p这些下载的区别 | Gxr404 Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Gxr404 Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E9%93%BE"><span class="nav-number">1.</span> <span class="nav-text">直链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P2P"><span class="nav-number">2.</span> <span class="nav-text">P2P</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bt%E7%A7%8D%E5%AD%90%E5%92%8C%E7%A3%81%E5%8A%9B%E9%93%BE%E6%8E%A5"><span class="nav-number">3.</span> <span class="nav-text">Bt种子和磁力链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E5%8A%9B%E9%93%BE%E6%8E%A5"><span class="nav-number">3.1.</span> <span class="nav-text">磁力链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bt%E7%A7%8D%E5%AD%90"><span class="nav-number">3.2.</span> <span class="nav-text">Bt种子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gxr404"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Gxr404</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+<div class="sidebar-button-2">
+  <a href="https://github.com/gxr404" rel="noopener external nofollow noreferrer" target="_blank" class="exturl" title="GitHub → https://github.com/gxr404">
+    <i class="fab fa-github fa-fw"></i>&nbsp;gxr404
+  </a>
+  <a href="mailto:gxr40404@gmail.com" rel="noopener external nofollow noreferrer" target="_blank" class="exturl" title="E-Mail → mailto:gxr40404@gmail.com">
+    <i class="fa fa-envelope fa-fw"></i>&nbsp;gxr40404@gmail.com
+  </a>
+  <a href="https://github-activity-one.vercel.app/gxr404?theme=dark" rel="noopener external nofollow noreferrer" target="_blank" class="exturl">
+    <i class="fa fa-bullhorn" style="vertical-align: 0px"></i>&nbsp;Github Activity
+  </a>
+</div>
+
+<div style="margin:0 -10px; border-top: 1px dashed #ccc;">
+  <img class="github_start_info light" src="https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=default&hide_border=true&show_owner=false&description_lines_count=10&title_color=555&icon_color=555&text_color=555#gh-light-mode-only">
+  <img class="github_start_info dark" src="https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=github_dark_dimmed&bg_color=00000000&hide_border=true&title_color=fff&icon_color=fff&text_color=fff#gh-dark-mode-only">
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gxr404.netlify.app/p2p/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Gxr404">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gxr404 Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="一文读懂Bt种子、磁力链接、直链、p2p这些下载的区别 | Gxr404 Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一文读懂Bt种子、磁力链接、直链、p2p这些下载的区别
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-12 21:59:36" itemprop="dateCreated datePublished" datetime="2025-01-12T21:59:36+08:00">2025-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+
+      </header>
+    
+      
+      
+        
+      
+        
+          <div class="badge">转载</div>
+        
+      
+        
+      
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><!--page header-->
+
+<ul>
+<li>什么是直链、Bt种子、磁力、p2p?</li>
+<li>它们有什么区别，原理分别是什么?</li>
+</ul>
+<h2 id="直链"><a href="#直链" class="headerlink" title="直链"></a>直链</h2><p>我们先说什么是直链, 直链就是<strong>直接从服务器下载数据</strong>。</p>
+<p>直链是我们日常生活中最最最常见的下载方式，我们从应用商店下载软件 或者从网页下载各种图片、音乐、视频等。<br>可以直接被下载的就是直链。比如我们打开网页，想下载一个微信，当你点击下载按钮的时候，网页就会直接帮你下载。</p>
+<p>这时我们复制它的下载连接,可以看到使用的是http协议</p>
+<img style="width: 400px" src="/p2p/v2-d0e5e412c39b1f15327554b7ba4e8af6_1440w-655304.jpeg" />
+
+<!-- ![v2-d0e5e412c39b1f15327554b7ba4e8af6_1440w.jpg](/p2p/v2-d0e5e412c39b1f15327554b7ba4e8af6_1440w-655304.jpeg) -->
+
+<p>那我们在看一下磁力和种子是怎样的 我们直接复制它的链接</p>
+<img style="width: 400px" src="/p2p/v2-a17f8e888b146729380226e669d46fd1_1440w-582406.jpeg" />
+
+<!-- ![v2-a17f8e888b146729380226e669d46fd1_1440w.jpg](/p2p/v2-a17f8e888b146729380226e669d46fd1_1440w-582406.jpeg) -->
+
+<p>这个链接是什么意思，我们等会在说</p>
+<p>有人可能会问为什么种子的链接是走http协议的</p>
+<p>别急，我们直接点击种子下载。可以看到只是通过http协议给你一个种子文件，种子的格式为<code>torrent</code></p>
+<img style="width: 100px" src="/p2p/v2-2a74af32d40eaeb43ce7f03941fc198f_1440w-915544.jpeg" />
+
+<!-- ![v2-2a74af32d40eaeb43ce7f03941fc198f_1440w.jpg](/p2p/v2-2a74af32d40eaeb43ce7f03941fc198f_1440w-915544.jpeg) -->
+
+<p>你得自己拿着这个种子通过下载器去下载。<br>我这里就以迅雷为例, 我们把种子拖拽到迅雷上, 它就会自动识别种子。<br>可以看到这部18.21GB的电影就在这里, 然后我们在点击下载就可以拿到了</p>
+<img style="width: 300px" src="/p2p/v2-3aeec0f8cf29fcd58177b910e5f9a41a_1440w-511981.jpeg" />
+
+<!-- ![v2-3aeec0f8cf29fcd58177b910e5f9a41a_1440w.jpg](/p2p/v2-3aeec0f8cf29fcd58177b910e5f9a41a_1440w-511981.jpeg) -->
+
+<h2 id="P2P"><a href="#P2P" class="headerlink" title="P2P"></a>P2P</h2><p>P2P就是peer to peer的缩写，翻译过来可以理解为个人对个人(点对点)</p>
+<p>直链把服务器作为中心让用户去下载。<br>因为服务器的带宽有限，所以下载的人越多，每个人所能享受的下载带宽就会分的更少,下载速度就越慢</p>
+<div style="display:flex;gap:6px">
+  <img style="width:50%" src="/p2p/v2-a70e094a508145e75eace150bfd78a19_1440w-899251.jpeg">
+  <img style="width:50%" src="/p2p/v2-7e08da63ea1700012da40c5e8a026827_1440w-035100.jpeg">
+</div>
+
+<blockquote>
+<p>直链: 下载的人越多,下载速度就越慢</p>
+</blockquote>
+<!-- ![v2-a70e094a508145e75eace150bfd78a19_1440w.jpg](/p2p/v2-a70e094a508145e75eace150bfd78a19_1440w-899251.jpeg)
+
+![v2-7e08da63ea1700012da40c5e8a026827_1440w.jpg](/p2p/v2-7e08da63ea1700012da40c5e8a026827_1440w-035100.jpeg) -->
+
+<p>而P2P就是“<strong>去中心化</strong>”，<strong>不依赖服务器</strong></p>
+<p>每个人都相当于一台服务器, 你<strong>在下载的同时，也在上传数据</strong>。<br>因为你下载的数据就是别人所上传给你的, 你所享受下载的同时也需要服务与别人, 这就是人人为我，我为人人的精神。</p>
+<img style="width: 500px" src="/p2p/v2-b168ca4cb676d4ae9844ce9397d6d215_1440w-342080.jpeg" />
+
+<!-- ![v2-b168ca4cb676d4ae9844ce9397d6d215_1440w.jpg](/p2p/v2-b168ca4cb676d4ae9844ce9397d6d215_1440w-342080.jpeg) -->
+
+<p>所以与直链相反, <strong>下载的人越多，下载的速度就越快</strong></p>
+<blockquote>
+<p>P2P: 下载的人越多，下载的速度就越快</p>
+</blockquote>
+<h2 id="Bt种子和磁力链接"><a href="#Bt种子和磁力链接" class="headerlink" title="Bt种子和磁力链接"></a>Bt种子和磁力链接</h2><p>那什么是Bt种子和磁力链接呢？ 其实<strong>Bt种子和磁力链接的下载方式都是P2P</strong>!!</p>
+<p>它们的区别只是<strong>寻找资源的方式不同</strong></p>
+<img style="width: 500px" src="/p2p/v2-e4674ce7cb1a436ab08c82930da8d13b_1440w-381886.jpeg" />
+
+<!-- ![v2-e4674ce7cb1a436ab08c82930da8d13b_1440w.jpg](/p2p/v2-e4674ce7cb1a436ab08c82930da8d13b_1440w-381886.jpeg) -->
+
+<h3 id="磁力链接"><a href="#磁力链接" class="headerlink" title="磁力链接"></a>磁力链接</h3><p>之前我们看到磁力链接的地址是</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">magnet:?xt=urn:btih:xxxxxxx</span><br><span class="line"></span><br><span class="line">// 从dn参数可以看出下载的是mp4</span><br><span class="line">magnet:?xt=urn:btih:99af18e766b0c28318b643f1112e7b6fa427deb0&amp;dn=中国机长-2019_BD国语中字.mp4</span><br><span class="line"></span><br><span class="line">// 也有磁力链接下载的内容是bt种子的情况</span><br><span class="line">magnet:?xt=urn:btih:xxx&amp;dn=xxxx.torrent</span><br></pre></td></tr></table></figure>
+
+<p>这样的什么意思呢，磁力链采用的是 DHT 全称是<code>Distributed Hash Table</code>, 意思就是分布式哈希表。</p>
+<p>顾名思义就是一种分布式的存储方法, 它以<code>magnet:?xt=urn:btih:</code>开头, 后面跟着的就是文件的哈希表生成的特征码。</p>
+<p>你可以把它理解为一个资源的身份证，你想要下载某个资源，就通过这个身份证去找到它。<br>不过这不是一般的身份证，这个身份证比较特殊，它分成了很多个小块。</p>
+<p>这些小块都有一个唯一的id，把这么多小块的id整理成一个数据表格（哈希表）。</p>
+<p>在下载前会将这个表分发给不同的用户, 每个用户就可以通过这个数据表格进行寻找地址和下载。</p>
+<p>比如举个简单的磁力下载方式的例子:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">用户A想要下载资源《雷神》, 但是他不知道哪里才有《雷神》</span><br><span class="line"></span><br><span class="line">所以他就问附近的用户B和用户C知不知道</span><br><span class="line"></span><br><span class="line">如果B和C也不知道</span><br><span class="line"></span><br><span class="line">那么用户B和C就会问附近的用户D E F G</span><br><span class="line"></span><br><span class="line">以此类推，终于</span><br><span class="line"></span><br><span class="line">最终G知道哪里有资源《雷神》</span><br><span class="line"></span><br><span class="line">然后就告诉了用户A哪些人电脑上有资源《雷神》</span><br><span class="line"></span><br><span class="line">然后用户A就跟这些人联系上了并进行了下载</span><br></pre></td></tr></table></figure>
+
+<img style="width:500px" src="/p2p/v2-b2d56ef2ea36ec94bf8a772abf1c5e50_1440w-250175.jpeg">
+
+<img style="width:500px" src="/p2p/v2-5b856e95f72d7b692cf226275111fc2c_1440w-382526.jpeg">
+
+<img style="width:500px" src="/p2p/v2-434271fc19a22379d5b84b423c14f3a8_1440w-903221.jpeg">
+
+<!-- ![v2-b2d56ef2ea36ec94bf8a772abf1c5e50_1440w.jpg](/p2p/v2-b2d56ef2ea36ec94bf8a772abf1c5e50_1440w-250175.jpeg)
+![v2-5b856e95f72d7b692cf226275111fc2c_1440w.jpg](/p2p/v2-5b856e95f72d7b692cf226275111fc2c_1440w-382526.jpeg)
+![v2-434271fc19a22379d5b84b423c14f3a8_1440w.jpg](/p2p/v2-434271fc19a22379d5b84b423c14f3a8_1440w-903221.jpeg) -->
+
+<h3 id="Bt种子"><a href="#Bt种子" class="headerlink" title="Bt种子"></a>Bt种子</h3><p>Bt种子的下载方式要简便一点, 他不用层层向这么多人打听。</p>
+<p>从种子上解析就可以查询到谁会有资源《雷神》，这个谁就相当于上面提到的用户G，它也叫做<strong>追踪服务器</strong>。</p>
+<p>然后根据用户G（追踪服务器）提供的信息地址, 去找那些用户进行下载就可以了。</p>
+<p>所以种子和磁力就是<strong>寻找资源的方式不同</strong>而已</p>
+<img style="width:500px" src="/p2p/v2-58cb3f02c9b5f38af81c0e8ce08462dd_1440w-818501.jpeg">
+<img style="width:500px" src="/p2p/v2-434271fc19a22379d5b84b423c14f3a8_1440w-903221.jpeg">
+
+
+<!-- ![v2-58cb3f02c9b5f38af81c0e8ce08462dd_1440w.jpg](/p2p/v2-58cb3f02c9b5f38af81c0e8ce08462dd_1440w-818501.jpeg)
+![v2-434271fc19a22379d5b84b423c14f3a8_1440w.jpg](/p2p/v2-434271fc19a22379d5b84b423c14f3a8_1440w-903221.jpeg) -->
+
+<p>不难发现，我们通过p2p下载的资源很多都是些非法资源。</p>
+<p>比如说常见的盗版电影，老司机的兰博基尼，受版权保护的其他资源等。</p>
+<p>如果直接通过直链下载，提供该下载的服务器会被直接封杀和律师函警告。</p>
+<p>bt种子如果查到了追踪服务器，也会被封杀掉该追踪服务器。</p>
+<p>不过一般种子比较多，而且也很难被查杀</p>
+<blockquote>
+<p>即使追踪服务器(Tracker)全挂了，现代BT客户端的补救措施如: 客户端支持DHT，追踪服务器失效会使用DHT帮助找到活跃的Peer</p>
+</blockquote>
+<p>那什么p2p下载器最好用呢?</p>
+<p>众所周知，国内用迅雷的用户是最多的, 但是不开会员的话，可能下载速度不会如你所意，也有很多其它的免费的下载器比迅雷要“干净”、“文明”。</p>
+<p>但是我个人还是用的迅雷，因为我试过很多下载器同一个磁力链接迅雷要比其他的下载器快很多。</p>
+<p>而且很多冷门资源其他的下载器都是0kb&#x2F;s, 所以我不得不用迅雷。</p>
+<p>如果你是一个不怎么经常需要用到p2p的, 那么我建议你可以找一些干净的下载器。</p>
+<p>如果你需要经常p2p下载，还是一些比较冷门的资源, 那么迅雷觉得是最适合的，当然前提你得开会员。</p>
+<p>可能有人会问了，你刚刚不是说了他们的下载原理吗。</p>
+<p>都是以<strong>拥有该资源的用户作为节点</strong> 拥有该资源的用户越多下载的速度就会越快啊，跟下载器有什么关系。</p>
+<p>我之前试了很多个同样的bt磁力链接， 用迅雷的速度就是要比其他的更快， 不信你们也可以试一试。</p>
+<p>至于原因，因为迅雷的技术也未对外公开， 所以我也不百分百保证是因为什么。</p>
+<p>我觉得CSDN上有位博客写的不错， 所以分享一下，可以参考一下:</p>
+<img style="width:500px" src="/p2p/v2-1bcc85c2042ea806c824edef98e6f41e_1440w-727348.jpeg">
+<!-- ![v2-1bcc85c2042ea806c824edef98e6f41e_1440w.jpg](/p2p/v2-1bcc85c2042ea806c824edef98e6f41e_1440w-727348.jpeg) -->
+
+<p>那么有人会说, 我不想服务给他人了要怎么办。</p>
+<p>有两种办法:</p>
+<ul>
+<li><p>第一种是删除掉你下载的磁力资源</p>
+</li>
+<li><p>第二种是关闭p2p的下载器</p>
+</li>
+</ul>
+<p>没错，比如迅雷，不管你是否在下载, 只要你打开它, 你就可以通过任务管理器看到有网速在上传。</p>
+<p>你关闭该程序后马上就会恢复到了0</p>
+<p>但是怎么说呢，如果占用的带宽特别低, 不影响使用, 我还是建议你们大方一点.</p>
+<p>因为我怕哪天轮到我下载的时候😂</p>
+<p>世界会突然异常<span class="exturl" data-url="aHR0cHM6Ly9saW5rLnpoaWh1LmNvbS8/dGFyZ2V0PWh0dHBzOi8vd3d3LmJpbGliaWxpLmNvbS92aWRlby9CVjF0VjR5MXg3VVA/c3BtX2lkX2Zyb209MzMzLjk5OS4wLjA=">安静<i class="fa fa-external-link-alt"></i></span>~</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>有意思的讨论</p>
+<ul>
+<li>我们从迅雷下载的资源，都是带了标识的，开机并且开了迅雷的时候，就处于随时上传的状态，可以被别人下载。我们电脑其他的资料没有这种标识，不会被迅雷识别用上传作他人下载，是这个意思吗？<ul>
+<li>可以这么理解</li>
+</ul>
+</li>
+</ul>
+<div class="markdown-alert markdown-alert-warning">
+<p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p>非原创, 仅为了转载留存😂</p>
+</div>
+<!--page footer-->
+<ul>
+<li>原文: <span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC81NTEzMzcxMjg=">https://zhuanlan.zhihu.com/p/551337128<i class="fa fa-external-link-alt"></i></span></li>
+<li>视频版: <span class="exturl" data-url="aHR0cHM6Ly9saW5rLnpoaWh1LmNvbS8/dGFyZ2V0PWh0dHBzOi8vd3d3LmJpbGliaWxpLmNvbS92aWRlby9CVjF0VjR5MXg3VVA/c3BtX2lkX2Zyb209MzMzLjk5OS4wLjA=">https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV1tV4y1x7UP%3Fspm_id_from%3D333.999.0.0<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%99%AE/" rel="tag"># 科普</a>
+              <a href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag"># 转载</a>
+              <a href="/tags/p2p/" rel="tag"># p2p</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/torrent-file/" rel="prev" title="浅谈Torrent文件">
+                  <i class="fa fa-angle-left"></i> 浅谈Torrent文件
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Gxr404</span>
+  </div><div class="footer-custom">
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2d4cjQwNC9ibG9n">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"gxr404/blog","issue_term":"pathname","theme":"github-light","pathname":"pathname"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

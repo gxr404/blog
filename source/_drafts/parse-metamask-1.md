@@ -20,9 +20,9 @@ MetaMask是最受欢迎的钱包之一, 是进入Web3世界的标志性工具，
 - chrome插件开发基础
 - metamask的其他库基础库
   - stream相关的库:
-    - [@metamask/object-multiplex](/parse_object_multiplex)
-    - [@metamask/post-message-stream](/parse_post_message_stream)
-    - [extension_port_stream](/parse_extension_port_stream)
+    - [@metamask/object-multiplex](/parse-object-multiplex)
+    - [@metamask/post-message-stream](/parse-post-message-stream)
+    - [extension_port_stream](/parse-extension-port-stream)
   - lavamoat
 - ⭐️ `@metamask/providers`: metamask注入 providers主要库
   - `@metamask/json-rpc-engine` 和 `@metamask/json-rpc-middleware-stream`

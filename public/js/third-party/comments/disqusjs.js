@@ -2,6 +2,7 @@
 
 document.addEventListener('page:loaded', () => {
   if (!CONFIG.page.comments) return;
+
   NexT.utils.loadComments('#disqus_thread')
     .then(() => NexT.utils.getScript(CONFIG.disqusjs.js, { condition: window.DisqusJS }))
     .then(() => {

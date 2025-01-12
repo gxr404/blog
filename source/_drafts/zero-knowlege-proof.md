@@ -45,7 +45,7 @@ Bob打开保险箱，把信封拿出来给Alice。Alice验证信封上的签名�
 
 小红告诉小明她决定选择按照**行的方法来验证**。小明接着把每一行的9张卡片收起来单独放到一个麻布袋里。所有卡片都被收完放在了9个麻布袋里。小明接着摇了摇每个麻布袋，把里面的卡片顺序都打散。最后把这9个麻布袋交给小红
 
-![](./zero_knowlege_proof/1.png)
+![](./zero-knowlege-proof/1.png)
 
 “好了，你可以打开这些布袋了。“小明对小红说，“每个布袋里应该都有正好9张，没有重复数字的，分别是数字1-9的卡片。”
 
@@ -145,14 +145,19 @@ zcash 就是用这个思路实现了隐私交易。
   - 可用来拓展多方协议，比如说多重签名。
   - 提供更高效的及加密交易的范围证明。
 
-| Proof system  | Σ Protocal   | SNARKS          | STARKs/CS-Proofs     | Bulletproofs |
-| ------------- | ------------ | --------------- | -------------------- | ------------ |
-| Proof size    | long         | short           | shortish             | short        |
-| Prover        | linear       | fft             | fft(big memort req.) | linear       |
-| Verfier       | linear       | efficient       | efficient            | linear       |
-| Trusted Setup | no           | required        | no                   | no           |
-| Practial      | yes          | yes             | not quite            | yes          |
-| Assumptions   | discrete-log | non-falsifiable | owf(quantum secure)  | discrete-log |
+| Proof system           | Σ Protocal   | SNARKS                     | STARKs/CS-Proofs     | Bulletproofs  |
+| ---------------------- | ------------ | -------------------------- | -------------------- | ------------- |
+| 算法复杂度: 证明者     | ...          | O(N * log(N))              | O(N * poly-log(N))   | O(N * log(N)) |
+| 算法复杂度: 验证者     | ...          | ~O(1)                      | O(poly-log(N))       | O(N)          |
+| 通信复杂度             | ...          | ~O(1)                      | O(poly-log(N))       | O(log(N))     |
+| └── 1 TX 预估大小      | ...          | Tx: 200 bytes, Key: 50 MB  | 45 kB                | 1.5 kb        |
+| └── 10.000 TX 预估大小 | ...          | Tx: 200 bytes, Key: 500 GB | 135 kb               | 2.5 kb        |
+| Proof size             | long         | short                      | shortish             | short         |
+| Prover                 | linear       | fft                        | fft(big memort req.) | linear        |
+| Verfier                | linear       | efficient                  | efficient            | linear        |
+| Trusted Setup          | no           | required                   | no                   | no            |
+| Practial               | yes          | yes                        | not quite            | yes           |
+| Assumptions            | discrete-log | non-falsifiable            | owf(quantum secure)  | discrete-log  |
 
 |                                       | SNARKs                     | STARKs                        | Bulletproofs    |
 | ------------------------------------: | -------------------------: | ----------------------------: | --------------: |
