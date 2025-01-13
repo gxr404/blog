@@ -1302,7 +1302,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #73d730;
+    background: #781f16;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3219,4 +3219,51 @@ header.header,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+  border-radius: 10px;
+  background-color: transparent;
+}
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.2);
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.4);
+}
+.site-brand-container {
+  background-color: #fff;
+  position: relative;
+}
+.site-brand-container:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background-image: url("/images/avatar.png");
+  background-size: 100%;
+  background-position: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  opacity: 0.3;
+  filter: grayscale(80%);
+}
+.site-brand-container .site-title {
+  color: var(--link-color);
+}
+.site-author-image {
+  border: 4px dashed #ccc;
+  padding: 4px;
 }
