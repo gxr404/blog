@@ -64,6 +64,10 @@ NexT.boot.refresh = function() {
   if (canonicalLink) {
     canonicalLink.href = `${location.origin + location.pathname}`;
   }
+  if (typeof tippy === 'function') {
+    tippy('[data-tippy-content]');
+  }
+
 };
 
 NexT.boot.motion = function() {

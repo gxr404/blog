@@ -69,3 +69,9 @@ categories: 技术
 - https://www.bilibili.com/video/BV15b4y1G7Df/?vd_source=bdbb3c69b1485af0f7bd463b17784781&spm_id_from=333.788.player.switch
 - https://www.binance.com/zh-CN/square/post/1036378527018
 - https://zh.wikipedia.org/wiki/%E6%AF%94%E7%89%B9%E5%B9%A3%E5%88%86%E5%8F%89%E5%88%97%E8%A1%A8
+
+
+
+
+<pre class="pre-wrap break-word"><code><span class="violet-2 hover-bg-gray-7" data-tippy-content="Version" data-tippy-placement="top">01000000</span> <span class="green-2 hover-bg-gray-7" data-tippy-content="Previous Block" data-tippy-placement="top">6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000</span> <span class="teal-2 hover-bg-gray-7" data-tippy-content="Merkle Root" data-tippy-placement="top">982051fd1e4ba744bbbe680e1fee14677ba1a3c3540bf7b1cdb606e857233e0e</span> <span class="indigo-2 hover-bg-gray-7" data-tippy-content="Time" data-tippy-placement="top">61bc6649</span> <span class="rose-2 hover-bg-gray-7" data-tippy-content="Bits" data-tippy-placement="top">ffff001d</span> <span class="amber-2 hover-bg-gray-7" data-tippy-content="Nonce" data-tippy-placement="top">01e36299</span> <span class="fuchsia-2 hover-bg-gray-7" data-tippy-content="Transaction Count" data-tippy-placement="top">01</span> <span class="gray-2 hover-bg-gray-7" data-tippy-content="Transactions" data-tippy-placement="top">01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0704ffff001d0104ffffffff0100f2052a0100000043410496b538e853519c726a2c91e61ec11600ae1390813a627c66fb8be7947be63c52da7589379515d4e0a604f8141781e62294721166bf621e73a82cbf2342c858eeac00000000</span>
+</code></pre>

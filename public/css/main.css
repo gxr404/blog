@@ -1302,7 +1302,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #781f16;
+    background: #32391a;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3266,4 +3266,38 @@ body::-webkit-scrollbar-thumb:hover {
 .site-author-image {
   border: 4px dashed #ccc;
   padding: 4px;
+}
+pre.pre-wrap {
+  white-space: pre-wrap;
+}
+pre.break-word {
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+pre .violet-2 {
+  color: #5b21b6;
+}
+pre .green-2 {
+  color: #166534;
+}
+pre .teal-2 {
+  color: #115e59;
+}
+pre .indigo-2 {
+  color: #3730a3;
+}
+pre .rose-2 {
+  color: #9f1239;
+}
+pre .amber-2 {
+  color: #92400e;
+}
+pre .fuchsia-2 {
+  color: #86198f;
+}
+pre .gray-2 {
+  color: #27272a;
+}
+pre .hover-bg-gray-7:hover {
+  background-color: #d4d4d8;
 }

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#151b23"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#151b23">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gxr404.netlify.app","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":300,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":true,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="数据传输的过程中，数据丢失或者人为干扰时就可能会出现数据接收者接收到的数据出现差错">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汉明码 Hamming Code">
+<meta property="og:url" content="https://gxr404.netlify.app/hamming-code/index.html">
+<meta property="og:site_name" content="Gxr404 Blog">
+<meta property="og:description" content="数据传输的过程中，数据丢失或者人为干扰时就可能会出现数据接收者接收到的数据出现差错">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-01-27T15:39:22.000Z">
+<meta property="article:modified_time" content="2025-01-27T15:39:22.633Z">
+<meta property="article:author" content="Gxr404">
+<meta property="article:tag" content="科普">
+<meta property="article:tag" content="数据错误检测&#x2F;纠错">
+<meta property="article:tag" content="编码">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gxr404.netlify.app/hamming-code/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gxr404.netlify.app/hamming-code/","path":"hamming-code/","title":"汉明码 Hamming Code"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>汉明码 Hamming Code | Gxr404 Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Gxr404 Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">编码步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A0%E9%94%99"><span class="nav-number">3.</span> <span class="nav-text">纠错</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AAbit%E9%94%99%E8%AF%AF"><span class="nav-number">3.1.</span> <span class="nav-text">多个bit错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gxr404"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Gxr404</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+<div class="sidebar-button-2">
+  <a href="https://github.com/gxr404" rel="noopener external nofollow noreferrer" target="_blank" class="exturl" title="GitHub → https://github.com/gxr404">
+    <i class="fab fa-github fa-fw"></i>&nbsp;gxr404
+  </a>
+  <a href="mailto:gxr40404@gmail.com" rel="noopener external nofollow noreferrer" target="_blank" class="exturl" title="E-Mail → mailto:gxr40404@gmail.com">
+    <i class="fa fa-envelope fa-fw"></i>&nbsp;gxr40404@gmail.com
+  </a>
+  <a href="https://github-activity-one.vercel.app/gxr404?theme=dark" rel="noopener external nofollow noreferrer" target="_blank" class="exturl">
+    <i class="fa fa-bullhorn" style="vertical-align: 0px"></i>&nbsp;Github Activity
+  </a>
+</div>
+
+<div style="margin:0 -10px; border-top: 1px dashed #ccc;">
+  <img class="github_start_info light" src="https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=default&hide_border=true&show_owner=false&description_lines_count=10&title_color=555&icon_color=555&text_color=555#gh-light-mode-only">
+  <img class="github_start_info dark" src="https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=github_dark_dimmed&bg_color=00000000&hide_border=true&title_color=fff&icon_color=fff&text_color=fff#gh-dark-mode-only">
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gxr404.netlify.app/hamming-code/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Gxr404">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gxr404 Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="汉明码 Hamming Code | Gxr404 Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          汉明码 Hamming Code
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-27 23:39:22" itemprop="dateCreated datePublished" datetime="2025-01-27T23:39:22+08:00">2025-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+
+      </header>
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>数据传输的过程中，数据丢失或者人为干扰时就可能会出现<code>数据接收者</code>接收到的数据出现差错</p>
+<p>为了保证的数据的完整性或错误纠正有几种解决方案:</p>
+<ul>
+<li>错误检测方案: 奇偶校验(只能检测奇数位错误)、校验和(checksum)、循环冗余校验(CRC)、哈希...</li>
+<li>错误检测+纠错的方案: 汉明码(单bit错误检测和纠正)、BCH码(多bit错误检测和纠正)...</li>
+</ul>
+<p>汉明码是一种用于检测和纠正<strong>单比特</strong>错误的编码技术</p>
+<h2 id="编码步骤"><a href="#编码步骤" class="headerlink" title="编码步骤"></a>编码步骤</h2><ol>
+<li><p>先计算出 汉明码的长度</p>
+<p> 公式为 $2^k &gt;&#x3D; N + k + 1$其中 N为数据长度， k为 汉明码的长度</p>
+</li>
+<li><p>根据长度填入原数据，冗余位留空</p>
+<p> 冗余位即汉明码要填入2的幂次位置，所以 1($2^0$)、2($2^1$)、4($2^2$)、8($2^3$)...格要留空</p>
+</li>
+<li><p>计算冗余位的值  <!-- 求汉明码 --></p>
+<ol>
+<li>根据<strong>原数据中bit为1的每一位所在的索引位置</strong>(从左往右从1开始), 计算出对应的二进制值</li>
+<li>根据二进制值做XOR(异或)运算得出 冗余位该填入的值, 得到的二进制数<strong>从右往左</strong>填充入冗余位</li>
+</ol>
+</li>
+<li><p>冗余位与数据原值合并得到最后编码结果</p>
+</li>
+</ol>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>计算原数据<code>10101111</code>的汉明码</p>
+<ol>
+<li><p>计算汉明码的长度 $2^k &gt;&#x3D; 8 + k + 1$ 得到k&#x3D;4 满足条件(其中8为<code>10101111</code>的长度)</p>
+<p> 所以有4个冗余位, 汉明码的长度 <code>4 + 8 = 12</code></p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>&nbsp;</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>接着再将原数据的值填入表格</p>
+<p> <strong>重点</strong>: 汉明码要填在2的幂次的位置, 所以 1($2^0$)、2($2^1$)、4($2^2$)、8($2^3$)格要留空</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>计算出冗余位的值</p>
+<ol>
+<li>根据原值索引转化出对应二进制</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>3 &#x3D;&gt; 0011</td>
+<td></td>
+<td></td>
+<td>6 &#x3D;&gt;0110</td>
+<td></td>
+<td></td>
+<td>9 &#x3D;&gt; 1001</td>
+<td>10 &#x3D;&gt; 1010</td>
+<td>11 &#x3D;&gt;  1011</td>
+<td>12 &#x3D;&gt; 1100</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>根据得到的二进制数执行XOR异或运算<br> <code>0b0011 ^ 0b0110 ^ 0b1001 ^ 0b1010 ^ 0b1011 ^ 0b1100 = 0b0001</code></li>
+</ol>
+ <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   | 8 4 2 1</span><br><span class="line">---|----------</span><br><span class="line">3  | 0 0 1 1</span><br><span class="line">6  | 0 1 1 0</span><br><span class="line">9  | 1 0 0 1</span><br><span class="line">10 | 1 0 1 0</span><br><span class="line">11 | 1 0 1 1</span><br><span class="line">12 | 1 1 0 0</span><br><span class="line">---|----------</span><br><span class="line">XOR| 0 0 0 1</span><br><span class="line"></span><br><span class="line">对应 得出 索引1填入1, 索引2填入0, 索引4填入0 索引8填入0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>填入冗余位与数据原值组合得出最终的编码 <code>101001001111</code></p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h2 id="纠错"><a href="#纠错" class="headerlink" title="纠错"></a>纠错</h2><p>数据接收者拿到汉明码后 可以通过汉明码中 bit为1的位根据对应的索引转换成二进制，并进行XOR</p>
+<ul>
+<li>如果 结果为 0 则代表 没错误无需纠正</li>
+<li>如果 结果非0 则得到的结果为 错误的位的索引号</li>
+</ul>
+<p>还是之前的例子 原数据<code>10101111</code> 得出的汉明码 <code>101001001111</code></p>
+<p>验证<code>101001001111</code></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   |</span><br><span class="line">---|----------</span><br><span class="line">1  | 0 0 0 1</span><br><span class="line">3  | 0 0 1 1</span><br><span class="line">6  | 0 1 1 0</span><br><span class="line">9  | 1 0 0 1</span><br><span class="line">10 | 1 0 1 0</span><br><span class="line">11 | 1 0 1 1</span><br><span class="line">12 | 1 1 0 0</span><br><span class="line">---|----------</span><br><span class="line">XOR| 0 0 0 0</span><br></pre></td></tr></table></figure>
+
+<p>结果为<code>0000</code>表示该汉明码正确</p>
+<p>修改汉明码中的一位改为<code>101001001110</code> 如何得到修改了哪一位并修正?</p>
+<ol>
+<li>取出汉明码中的为1的位并根据所在的索引转为二进制</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   |</span><br><span class="line">---|----------</span><br><span class="line">1  | 0 0 0 1</span><br><span class="line">3  | 0 0 1 1</span><br><span class="line">6  | 0 1 1 0</span><br><span class="line">9  | 1 0 0 1</span><br><span class="line">10 | 1 0 1 0</span><br><span class="line">11 | 1 0 1 1</span><br><span class="line">---|----------</span><br><span class="line">XOR| 1 1 0 0</span><br></pre></td></tr></table></figure>
+
+<p>得到了 <code>0b1100</code> 即 十进制的<code>12</code> 表示第12位错误 即<code>101001001110</code>有错误 第12位 0应改为1<br><code>101001001111</code></p>
+<h3 id="多个bit错误"><a href="#多个bit错误" class="headerlink" title="多个bit错误"></a>多个bit错误</h3><p>汉明码只能检测和纠正单个bit的错误</p>
+<p>例如 原数据<code>10101111</code> 得出的汉明码 <code>101001001111</code>，<br>此时 把汉明码 第12位改为0 第11位改为0 为<code>101001001100</code></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   |</span><br><span class="line">---|----------</span><br><span class="line">1  | 0 0 0 1</span><br><span class="line">3  | 0 0 1 1</span><br><span class="line">6  | 0 1 1 0</span><br><span class="line">9  | 1 0 0 1</span><br><span class="line">10 | 1 0 1 0</span><br><span class="line">---|----------</span><br><span class="line">XOR| 0 1 1 1</span><br></pre></td></tr></table></figure>
+
+<p>修改两位比特位导致校验冲突，结果<code>111</code>即7，而第7位并没有被修改过</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly95YW9qb3JkYW4ubWVkaXVtLmNvbS8lRTglQTglODglRTYlQTYlODItaGFtbWluZy1jb2RlLSVFNiVCQyVBMiVFNiU5OCU4RSVFNyVBMiVCQy03ODEwMmQ2ODBjNzg=">https://yaojordan.medium.com/%E8%A8%88%E6%A6%82-hamming-code-%E6%BC%A2%E6%98%8E%E7%A2%BC-78102d680c78<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JUIxJTg5JUU2JTk4JThFJUU3JUEwJTgx">https://zh.wikipedia.org/wiki/%E6%B1%89%E6%98%8E%E7%A0%81<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%99%AE/" rel="tag"># 科普</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E9%94%99%E8%AF%AF%E6%A3%80%E6%B5%8B-%E7%BA%A0%E9%94%99/" rel="tag"># 数据错误检测/纠错</a>
+              <a href="/tags/%E7%BC%96%E7%A0%81/" rel="tag"># 编码</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/p2p/" rel="prev" title="一文读懂Bt种子、磁力链接、直链、p2p这些下载的区别">
+                  <i class="fa fa-angle-left"></i> 一文读懂Bt种子、磁力链接、直链、p2p这些下载的区别
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Gxr404</span>
+  </div><div class="footer-custom">
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2d4cjQwNC9ibG9n">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="/lib/medium-zoom/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"/lib/mermaid/dist/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"/lib/wavedrom/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"/lib/wavedrom/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js"></script>
+
+
+
+
+  <script data-pjax src="/js/third-party/tippy/popper.js"></script>
+  <script data-pjax src="/js/third-party/tippy/tippy.js"></script>
+  <script>
+  tippy('[data-tippy-content]');
+  </script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"gxr404/blog","issue_term":"pathname","theme":"github-light","pathname":"pathname"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
