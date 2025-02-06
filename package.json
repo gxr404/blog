@@ -12,7 +12,8 @@
     "new_draft": "hexo new draft 'title'",
     "publish_draft_default": "hexo publish 'title'",
     "publish_draft": "hexo publish",
-    "publish": "rm -rf public && npm run build && git add . && git commit -m 'chore: publish blog' && git push"
+    "cp_google_search_file": "cp googled8bce8c456034b33.html public",
+    "publish": "rm -rf public && npm run build && npm run cp_google_search_file && git add . && git commit -m 'chore: publish blog' && git push"
   },
   "hexo": {
     "version": "7.3.0"
