@@ -4,11 +4,8 @@ comments: false
 ---
 
 <script>
-  if (document.readyState === 'complete') {
-    init()
-  } else {
-    window.addEventListener('load', function() { init() });
-  }
+  window.addEventListener('load', init)
+  // document.addEventListener('pjax:complete', init)
   function init() {
     document.querySelector('.project-list').addEventListener('click', function(e) {
       console.log(e)
