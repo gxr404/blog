@@ -4,7 +4,12 @@ comments: false
 ---
 
 <script>
-  window.addEventListener('load', function() {
+  if (document.readyState === 'complete') {
+    init()
+  } else {
+    window.addEventListener('load', function() { init() });
+  }
+  function init() {
     document.querySelector('.project-list').addEventListener('click', function(e) {
       console.log(e)
       console.log(e.target)
@@ -20,7 +25,7 @@ comments: false
       return false
     })
     loadProjectList(projectList)
-  })
+  }
   function goUrl(url) {
     if (!url) return
     window.open(url, '_blank')
