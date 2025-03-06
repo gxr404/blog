@@ -1302,7 +1302,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #657dd9;
+    background: #f5a8cd;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3100,6 +3100,12 @@ body {
 }
 .post-body .markdown-alert.markdown-alert-caution .markdown-alert-title svg {
   fill: var(--color-danger-fg);
+}
+.github_start_info {
+  min-height: 180px;
+  min-width: 100%;
+  background-color: #eee;
+  position: relative;
 }
 .github_start_info.light {
   display: block;

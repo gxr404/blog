@@ -1,0 +1,13 @@
+diff --git a/node_modules/hexo-reference/index.js b/node_modules/hexo-reference/index.js
+index 90940b6..ed80c42 100644
+--- a/node_modules/hexo-reference/index.js
++++ b/node_modules/hexo-reference/index.js
+@@ -10,7 +10,7 @@ hexo.extend.filter.register('before_post_render', function(data) {
+ // Add CDN CSS resources
+ hexo.extend.filter.register('after_post_render', function(data) {
+   data.content =
+-      util.htmlTag('link', {rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css'}) +
++      util.htmlTag('link', {rel: 'stylesheet', type: 'text/css', href: '/css/hint_css/2_4_1/hint.min.css'}) +
+       data.content;
+   return data;
+ });

@@ -82,7 +82,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li><li class="menu-item menu-item-我的项目"><a href="/my_project/" rel="section"><i class="fas fa-code fa-fw"></i>我的项目</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -175,10 +175,31 @@
   </a>
 </div>
 
-<div style="margin:0 -10px; border-top: 1px dashed #ccc;">
-  <img class="github_start_info light" src="https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=default&hide_border=true&show_owner=false&description_lines_count=10&title_color=555&icon_color=555&text_color=555#gh-light-mode-only">
-  <img class="github_start_info dark" src="https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=github_dark_dimmed&bg_color=00000000&hide_border=true&title_color=fff&icon_color=fff&text_color=fff#gh-dark-mode-only">
+<div style="margin:0 -10px; border-top: 1px dashed #ccc; display: none" class="github_profile">
+  <img class="github_start_info light">
 </div>
+<script>
+window.onload = function() {
+  var img = new Image()
+  var src = 'https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=default&hide_border=true&show_owner=false&description_lines_count=10&title_color=555&icon_color=555&text_color=555#gh-light-mode-only'
+  img.src = src
+  img.style.width=0
+  img.style.height=0
+  document.body.appendChild(img)
+  img.onload = function() {
+    document.querySelector('.github_profile').style.display="block"
+    document.querySelector('.github_profile').querySelector('img').src = src
+    if (img.parentNode) {
+      img.parentNode.removeChild(img);
+    }
+  }
+  img.onerror = function() {
+    if (img.parentNode) {
+      img.parentNode.removeChild(img);
+    }
+  }
+}
+</script>
 
         </div>
       </div>
@@ -260,7 +281,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>数据传输的过程中，数据丢失或者人为干扰时就可能会出现<code>数据接收者</code>接收到的数据出现差错</p>
+          <link rel="stylesheet" type="text/css" href="/css/hint_css/2_4_1/hint.min.css"><p>数据传输的过程中，数据丢失或者人为干扰时就可能会出现<code>数据接收者</code>接收到的数据出现差错</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/hamming-code/#more" rel="contents">
@@ -356,7 +377,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><!--page header-->
+          <link rel="stylesheet" type="text/css" href="/css/hint_css/2_4_1/hint.min.css"><!--page header-->
 
 <ul>
 <li>什么是直链、Bt种子、磁力、p2p?</li>
@@ -453,7 +474,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>torrent文件即我们常说的种子文件，是由<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvQml0VG9ycmVudF8oJUU1JThEJThGJUU4JUFFJUFFKQ==">BitTorrent协议<i class="fa fa-external-link-alt"></i></span>所定义的。</p>
+          <link rel="stylesheet" type="text/css" href="/css/hint_css/2_4_1/hint.min.css"><p>torrent文件即我们常说的种子文件，是由<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvQml0VG9ycmVudF8oJUU1JThEJThGJUU4JUFFJUFFKQ==">BitTorrent协议<i class="fa fa-external-link-alt"></i></span>所定义的。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/torrent-file/#more" rel="contents">
@@ -543,7 +564,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>chrome插件可以扩展浏览器的功能，为用户提供更便捷的操作或增强网页的交互体验。</p>
+          <link rel="stylesheet" type="text/css" href="/css/hint_css/2_4_1/hint.min.css"><p>chrome插件可以扩展浏览器的功能，为用户提供更便捷的操作或增强网页的交互体验。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/chrome-extension/#more" rel="contents">
@@ -637,7 +658,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01ldGFNYXNrL29iamVjdC1tdWx0aXBsZXg=">@metamask&#x2F;object-multiplex<i class="fa fa-external-link-alt"></i></span> 是 MetaMask 提供的一个基于<code>objectMode</code>的流多路复用库.</p>
+          <link rel="stylesheet" type="text/css" href="/css/hint_css/2_4_1/hint.min.css"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01ldGFNYXNrL29iamVjdC1tdWx0aXBsZXg=">@metamask&#x2F;object-multiplex<i class="fa fa-external-link-alt"></i></span> 是 MetaMask 提供的一个基于<code>objectMode</code>的流多路复用库.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/parse-object-multiplex/#more" rel="contents">
@@ -735,7 +756,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01ldGFNYXNrL2V4dGVuc2lvbi1wb3J0LXN0cmVhbQ==">extension-port-stream<i class="fa fa-external-link-alt"></i></span>将<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9Nb3ppbGxhL0FkZC1vbnMvV2ViRXh0ZW5zaW9ucy9BUEkvcnVudGltZS9Qb3J0">浏览器插件上的Runtime.Port对象<i class="fa fa-external-link-alt"></i></span> 转成stream流对象.</p>
+          <link rel="stylesheet" type="text/css" href="/css/hint_css/2_4_1/hint.min.css"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01ldGFNYXNrL2V4dGVuc2lvbi1wb3J0LXN0cmVhbQ==">extension-port-stream<i class="fa fa-external-link-alt"></i></span>将<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9Nb3ppbGxhL0FkZC1vbnMvV2ViRXh0ZW5zaW9ucy9BUEkvcnVudGltZS9Qb3J0">浏览器插件上的Runtime.Port对象<i class="fa fa-external-link-alt"></i></span> 转成stream流对象.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/parse-extension-port-stream/#more" rel="contents">
@@ -827,7 +848,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>站点地图（Sitemap）描述了网站的架构。 它可以是一个任意形式的文档(xml&#x2F;html)，是列出网站中所有页面的一个网页。</p>
+          <link rel="stylesheet" type="text/css" href="/css/hint_css/2_4_1/hint.min.css"><p>站点地图（Sitemap）描述了网站的架构。 它可以是一个任意形式的文档(xml&#x2F;html)，是列出网站中所有页面的一个网页。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/sitemap/#more" rel="contents">
@@ -925,7 +946,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01ldGFNYXNrL3Bvc3QtbWVzc2FnZS1zdHJlYW0=">@metamask&#x2F;post-message-stream<i class="fa fa-external-link-alt"></i></span> 是MetaMask提供的一个在<code>window.postMessage</code>实现的双工对象流(基于 Duplex 的objectMode)</p>
+          <link rel="stylesheet" type="text/css" href="/css/hint_css/2_4_1/hint.min.css"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01ldGFNYXNrL3Bvc3QtbWVzc2FnZS1zdHJlYW0=">@metamask&#x2F;post-message-stream<i class="fa fa-external-link-alt"></i></span> 是MetaMask提供的一个在<code>window.postMessage</code>实现的双工对象流(基于 Duplex 的objectMode)</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/parse-post-message-stream/#more" rel="contents">

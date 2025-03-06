@@ -104,7 +104,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li><li class="menu-item menu-item-我的项目"><a href="/my_project/" rel="section"><i class="fas fa-code fa-fw"></i>我的项目</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -198,10 +198,31 @@
   </a>
 </div>
 
-<div style="margin:0 -10px; border-top: 1px dashed #ccc;">
-  <img class="github_start_info light" src="https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=default&hide_border=true&show_owner=false&description_lines_count=10&title_color=555&icon_color=555&text_color=555#gh-light-mode-only">
-  <img class="github_start_info dark" src="https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=github_dark_dimmed&bg_color=00000000&hide_border=true&title_color=fff&icon_color=fff&text_color=fff#gh-dark-mode-only">
+<div style="margin:0 -10px; border-top: 1px dashed #ccc; display: none" class="github_profile">
+  <img class="github_start_info light">
 </div>
+<script>
+window.onload = function() {
+  var img = new Image()
+  var src = 'https://github-readme-stats-lime-sigma-23.vercel.app/api?username=gxr404&show_icons=true&hide_rank=true&theme=default&hide_border=true&show_owner=false&description_lines_count=10&title_color=555&icon_color=555&text_color=555#gh-light-mode-only'
+  img.src = src
+  img.style.width=0
+  img.style.height=0
+  document.body.appendChild(img)
+  img.onload = function() {
+    document.querySelector('.github_profile').style.display="block"
+    document.querySelector('.github_profile').querySelector('img').src = src
+    if (img.parentNode) {
+      img.parentNode.removeChild(img);
+    }
+  }
+  img.onerror = function() {
+    if (img.parentNode) {
+      img.parentNode.removeChild(img);
+    }
+  }
+}
+</script>
 
         </div>
       </div>
@@ -285,7 +306,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><!--page header-->
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="/css/hint_css/2_4_1/hint.min.css"><!--page header-->
 
 <ul>
 <li>什么是直链、Bt种子、磁力、p2p?</li>
