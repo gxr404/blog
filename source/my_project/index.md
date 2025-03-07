@@ -130,11 +130,12 @@ p {
   justify-items: center;
   width:620px;
   margin: 0 auto;
+  padding-bottom: 100px;
 }
 .project-item {
   box-sizing: border-box;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
   width: 300px;
   cursor: pointer;
   transition: all 0.2s;
@@ -145,15 +146,16 @@ p {
 }
 .project-item:hover {
   border-color: black;
-  /* background-color: black; */
-  /* border-color: #ccc;
-  background-color: #ccc; */
+  transform: scale(1.02);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
+
 }
 .project-item:hover .tit {
   /* color: white; */
 }
 .project-item:hover .tit , .project-item:hover .desc {
-  color: black;
+  /* color: black; */
 }
 .project-item .tit {
   font-size: 16px;
