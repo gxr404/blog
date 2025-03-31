@@ -6,8 +6,6 @@ tags:
 date: 2025-03-31 19:58:45
 ---
 
-
-
 ## 安装Alpine
 
 通过[TermuxAlpine](https://github.com/Hax4us/TermuxAlpine)脚本可以在Terumx中很轻松的安装Alpine
@@ -111,6 +109,17 @@ ln -s /ql/docker/docker-entrypoint.sh /usr/bin/qinglong
 
 # 启动青龙面板
 qinglong
+```
+
+## 内置变量
+
+```bash
+
+echo $HOME # /data/data/com.termux/files/home
+
+# Termux 软件的安装目录
+# 像npm 一些全局安装的脚本会在 "$PREFIX/bin"
+echo $PREFIX # /data/data/com.termux/files/usr
 ```
 
 
